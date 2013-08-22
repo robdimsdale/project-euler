@@ -6,4 +6,16 @@
   <artifactId>project-euler</artifactId>
   <packaging>jar</packaging>
   <version>0.0.1-SNAPSHOT</version>
+
+  <properties>
+    <junit.version>4.11</junit.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+    </dependency>
+  </dependencies>
 </project>
