@@ -10,6 +10,8 @@ public final class Main {
     private Main() {
         this.problemList = new ArrayList<Problem>();
         this.getProblemList().add(new Problem1());
+        this.getProblemList().add(new Problem2());
+        this.getProblemList().add(new Problem3());
     }
 
     private List<Problem> getProblemList() {
