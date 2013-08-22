@@ -1,0 +1,28 @@
+<FindBugsFilter>
+  <!-- Ignore all MALICIOUS_CODE, as we do not allow external Java code to interact with the process. -->
+  <Match>
+    <Bug category="MALICIOUS_CODE" />
+  </Match>
+  <!-- Findbugs considers anonymous inner classes which could be made static named inner classes to be a potential performance problem. We would probably prefer the increased readability to the performance, which is likely to be negligeable in almost all cases. -->
+  <Match>
+    <Bug pattern="SIC_INNER_SHOULD_BE_STATIC_ANON" />
+  </Match>
+  <!--&lt;!&ndash; The StaticMetaModel classes contain lots of apparently unwritten static fields &ndash;&gt;-->
+  <!--<Match>-->
+    <!--<Class name="~.*_" /> &lt;!&ndash; classes whose names end in "_" &ndash;&gt;-->
+    <!--<Bug pattern="UUF_UNUSED_PUBLIC_OR_PROTECTED_FIELD,UWF_UNWRITTEN_PUBLIC_OR_PROTECTED_FIELD" />-->
+  <!--</Match>-->
+  <!-- We don't want to use %n in string.format, because that will output \r\n on Windows servers,
+     = but we want to output \n, as we are a web app (unix line endings) -->
+  <Match>
+    <Bug pattern="VA_FORMAT_STRING_USES_NEWLINE" />
+  </Match>
+  <!-- We don't care about encoding as we know we will always be on platforms that use UTF-8-->
+  <Match>
+    <Bug pattern="DM_DEFAULT_ENCODING" />
+  </Match>
+  <!-- This reports false positives-->
+  <Match>
+    <Bug pattern="OBL_UNSATISFIED_OBLIGATION_EXCEPTION_EDGE" />
+  </Match>
+</FindBugsFilter>
