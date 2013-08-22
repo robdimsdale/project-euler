@@ -23,10 +23,17 @@ public final class Main {
     }
 
     private void run() {
+        final String delimiter = "--------------------------------------------------";
+        System.out.println(delimiter);
+        System.out.println();
+
         for (Problem problem : this.getProblemList()) {
-            System.out.println("Problem: " + this.getProblemList().indexOf(problem));
+            System.out.println("Problem: " + (this.getProblemList().indexOf(problem) + 1));
             System.out.println(problem.getDescription());
-            System.out.println(problem.run());
+            System.out.println("Answer: " + problem.run());
+            System.out.println();
+            System.out.println(delimiter);
+            System.out.println();
         }
     }
 }
