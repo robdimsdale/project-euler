@@ -27,8 +27,8 @@ public class Problem1Test extends AbstractProblemTestBase<Problem1> {
     @Test
     public void runReturnsCorrectlyForMaxValue16() {
         // Arrange
-        final int providedMaxValue = 16;
-        this.getProblem().setMaxValue(providedMaxValue);
+        final int someMaxValue = 16;
+        this.getProblem().setMaxValue(someMaxValue);
 
         // Act
         int returnedSum = Integer.valueOf(this.getProblem().run());
@@ -41,8 +41,8 @@ public class Problem1Test extends AbstractProblemTestBase<Problem1> {
     @Test
     public void runReturnsCorrectlyForDesiredMaxValue() {
         // Arrange
-        final int providedMaxValue = 1000;
-        this.getProblem().setMaxValue(providedMaxValue);
+        final int desiredMaxValue = 1000;
+        this.getProblem().setMaxValue(desiredMaxValue);
 
         // Act
         int returnedSum = Integer.valueOf(this.getProblem().run());

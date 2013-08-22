@@ -2,8 +2,12 @@ package com.rmd.personal.projecteuler;
 
 public class Problem1 implements Problem {
 
-    private final int defaultMaxValue = 1000;
-    private int maxValue = defaultMaxValue;
+    private static final int DEFAULT_MAX_VALUE = 1000;
+    private int maxValue;
+
+    public Problem1() {
+        this.setMaxValue(DEFAULT_MAX_VALUE);
+    }
 
     @Override
     public String getDescription() {
