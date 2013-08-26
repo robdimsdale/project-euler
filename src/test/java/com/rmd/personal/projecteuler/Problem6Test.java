@@ -25,11 +25,7 @@ public class Problem6Test extends AbstractProblemTestBase<Problem6> {
     }
 
     @Test
-    public void runReturnsCorrectlyForMaxNumber100() {
-        // Arrange
-        final int maxNumber = 100;
-        this.getProblem().setMaxNumber(maxNumber);
-
+    public void runReturnsCorrectlyForDefault() {
         // Act
         long returned = Long.valueOf(this.getProblem().run());
 

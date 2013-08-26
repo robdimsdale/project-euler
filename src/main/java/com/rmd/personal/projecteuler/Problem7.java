@@ -1,8 +1,5 @@
 package com.rmd.personal.projecteuler;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class Problem7 implements Problem {
 
     private static final int DEFAULT_DESIRED_PRIME_NUMBER_INDEX = 10001;
@@ -30,31 +27,7 @@ public class Problem7 implements Problem {
     @Override
     public String run() {
 
-        Set<Long> primes = new HashSet<Long>();
-        primes.add(2L);
-
-        final long startingPrime = 3;
-
-        long largestPrime = startingPrime;
-
-        long currentNumber = startingPrime;
-        while (primes.size() < this.getDesiredPrimeNumberIndex()) {
-
-            boolean noPrimeFactors = true;
-            for (long prime : primes) {
-                if (currentNumber % prime == 0) {
-                    noPrimeFactors = false;
-                    break;
-                }
-            }
-
-            if (noPrimeFactors) {
-                largestPrime = currentNumber;
-                primes.add(currentNumber);
-            }
-
-            currentNumber += 2; // Skip by two as we only care about every odd number.
-        }
+        long largestPrime = Common.getPrimes().get(this.getDesiredPrimeNumberIndex() - 1);
 
         return String.valueOf(largestPrime);
     }

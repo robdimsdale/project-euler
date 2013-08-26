@@ -27,13 +27,13 @@ public class Problem3 implements Problem {
     public String run() {
         long currentNumber = this.getNumberValue();
 
-        int currentPrime = 2;
+        long currentPrime = 2;
 
         while (currentPrime < currentNumber) {
             if (currentNumber % currentPrime == 0) {
                 currentNumber = currentNumber / currentPrime;
             } else {
-                currentPrime = Common.getNextPrime(currentPrime);
+                currentPrime = Common.getPrimes().get(Common.getPrimes().indexOf(currentPrime) + 1);
             }
         }
 

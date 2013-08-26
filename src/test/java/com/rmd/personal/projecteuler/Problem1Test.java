@@ -39,11 +39,7 @@ public class Problem1Test extends AbstractProblemTestBase<Problem1> {
     }
 
     @Test
-    public void runReturnsCorrectlyForDesiredMaxValue() {
-        // Arrange
-        final long desiredMaxValue = 1000;
-        this.getProblem().setMaxValue(desiredMaxValue);
-
+    public void runReturnsCorrectlyForDefault() {
         // Act
         long returnedSum = Integer.valueOf(this.getProblem().run());
 

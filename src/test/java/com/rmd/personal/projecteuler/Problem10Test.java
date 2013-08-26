@@ -4,23 +4,23 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class Problem5Test extends AbstractProblemTestBase<Problem5> {
+public class Problem10Test extends AbstractProblemTestBase<Problem10> {
 
-    public Problem5Test() {
-        super(new Problem5());
+    public Problem10Test() {
+        super(new Problem10());
     }
 
     @Test
-    public void runReturnsCorrectlyForProductUpToTen() {
+    public void runReturnsCorrectlyForMaxPrime10() {
         // Arrange
-        final int maxFactor = 10;
-        this.getProblem().setMaxFactor(maxFactor);
+        final int maxPrime = 10;
+        this.getProblem().setMaxPrime(maxPrime);
 
         // Act
         long returned = Long.valueOf(this.getProblem().run());
 
         // Assert
-        final long expected = 2520L;
+        final long expected = 17;
         assertEquals(expected, returned);
     }
 
@@ -30,7 +30,7 @@ public class Problem5Test extends AbstractProblemTestBase<Problem5> {
         long returned = Long.valueOf(this.getProblem().run());
 
         // Assert
-        final long expected = 232792560L;
+        final long expected = 142913828922L;
         assertEquals(expected, returned);
     }
 }

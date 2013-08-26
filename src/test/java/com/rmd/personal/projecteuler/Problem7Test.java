@@ -39,11 +39,7 @@ public class Problem7Test extends AbstractProblemTestBase<Problem7> {
     }
 
     @Test
-    public void runReturnsCorrectlyForMaxNumber100() {
-        // Arrange
-        final int maxNumber = 10001;
-        this.getProblem().setDesiredPrimeNumberIndex(maxNumber);
-
+    public void runReturnsCorrectlyForDefault() {
         // Act
         long returned = Long.valueOf(this.getProblem().run());
 

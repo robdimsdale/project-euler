@@ -25,11 +25,7 @@ public class Problem4Test extends AbstractProblemTestBase<Problem4> {
     }
 
     @Test
-    public void runReturnsCorrectlyForProductOfThreeDigits() {
-        // Arrange
-        final int digitCount = 3;
-        this.getProblem().setNumberOfDigits(digitCount);
-
+    public void runReturnsCorrectlyForDefault() {
         // Act
         long returnedMaxPalindrome = Long.valueOf(this.getProblem().run());
 

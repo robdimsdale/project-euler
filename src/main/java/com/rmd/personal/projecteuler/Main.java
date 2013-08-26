@@ -1,6 +1,7 @@
 package com.rmd.personal.projecteuler;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public final class Main {
@@ -18,6 +19,7 @@ public final class Main {
         this.getProblemList().add(new Problem7());
         this.getProblemList().add(new Problem8());
         this.getProblemList().add(new Problem9());
+        this.getProblemList().add(new Problem10());
     }
 
     private List<Problem> getProblemList() {
@@ -36,7 +38,11 @@ public final class Main {
         for (Problem problem : this.getProblemList()) {
             System.out.println("Problem: " + (this.getProblemList().indexOf(problem) + 1));
             System.out.println(problem.getDescription());
-            System.out.println("Answer: " + problem.run());
+            Date startTime = new Date();
+            String answer = problem.run();
+            Date endTime = new Date();
+            System.out.println("Answer: " + answer
+                    + " (time taken: " + (endTime.getTime() - startTime.getTime()) + " ms)");
             System.out.println();
             System.out.println(delimiter);
             System.out.println();

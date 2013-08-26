@@ -17,24 +17,20 @@ public class Problem3Test extends AbstractProblemTestBase<Problem3> {
         this.getProblem().setNumberValue(aMaxValue);
 
         // Act
-        int returnedMaxPrimeFactor = Integer.valueOf(this.getProblem().run());
+        long returnedMaxPrimeFactor = Integer.valueOf(this.getProblem().run());
 
         // Assert
-        final int expectedMaxPrimeFactor = 29;
+        final long expectedMaxPrimeFactor = 29;
         assertEquals(expectedMaxPrimeFactor, returnedMaxPrimeFactor);
     }
 
     @Test
-    public void runReturnsCorrectlyForDesiredMaxValue() {
-        // Arrange
-        final long desiredMaxValue = 600851475143L;
-        this.getProblem().setNumberValue(desiredMaxValue);
-
+    public void runReturnsCorrectlyForDefault() {
         // Act
-        int returnedMaxPrimeFactor = Integer.valueOf(this.getProblem().run());
+        long returnedMaxPrimeFactor = Integer.valueOf(this.getProblem().run());
 
         // Assert
-        final int expectedMaxPrimeFactor = 4613732;
+        final long expectedMaxPrimeFactor = 6857L;
         assertEquals(expectedMaxPrimeFactor, returnedMaxPrimeFactor);
     }
 

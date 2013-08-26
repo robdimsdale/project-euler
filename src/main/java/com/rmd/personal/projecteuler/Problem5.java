@@ -29,9 +29,9 @@ public class Problem5 implements Problem {
 
     @Override
     public String run() {
-        Map<Integer, Integer> primePowers = new HashMap<Integer, Integer>();
+        Map<Long, Integer> primePowers = new HashMap<Long, Integer>();
 
-        int currentPrime = 2;
+        long currentPrime = 2;
         while (currentPrime < this.getMaxFactor()) {
             int currentPrimePower = 0;
             while (Math.pow(currentPrime, currentPrimePower + 1) < this.getMaxFactor()) {
@@ -40,11 +40,11 @@ public class Problem5 implements Problem {
             if (primePowers.get(currentPrime) == null || primePowers.get(currentPrime) < currentPrimePower) {
                 primePowers.put(currentPrime, currentPrimePower);
             }
-            currentPrime = Common.getNextPrime(currentPrime);
+            currentPrime = Common.getPrimes().get(Common.getPrimes().indexOf(currentPrime) + 1);
         }
 
         double product = 1;
-        for (int prime : primePowers.keySet()) {
+        for (long prime : primePowers.keySet()) {
             product = product * Math.pow(prime, primePowers.get(prime));
         }
 
