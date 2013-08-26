@@ -1022,4 +1022,8 @@ public final class Common {
         primes.add(7907); //SUPPRESS CHECKSTYLE magicNumber
         primes.add(7919); //SUPPRESS CHECKSTYLE magicNumber
     }
+
+    protected static long sum(long n) {
+        return (n * (n + 1)) / 2;
+    }
 }

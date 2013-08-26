@@ -13,42 +13,42 @@ public class Problem1Test extends AbstractProblemTestBase<Problem1> {
     @Test
     public void runReturnsCorrectlyForProvidedMaxValue() {
         // Arrange
-        final int providedMaxValue = 10;
+        final long providedMaxValue = 10;
         this.getProblem().setMaxValue(providedMaxValue);
 
         // Act
-        int returnedSum = Integer.valueOf(this.getProblem().run());
+        long returnedSum = Integer.valueOf(this.getProblem().run());
 
         // Assert
-        final int expectedSum = 23;
+        final long expectedSum = 23;
         assertEquals(expectedSum, returnedSum);
     }
 
     @Test
     public void runReturnsCorrectlyForMaxValue16() {
         // Arrange
-        final int someMaxValue = 16;
+        final long someMaxValue = 16;
         this.getProblem().setMaxValue(someMaxValue);
 
         // Act
-        int returnedSum = Integer.valueOf(this.getProblem().run());
+        long returnedSum = Integer.valueOf(this.getProblem().run());
 
         // Assert
-        final int expectedSum = 60;
+        final long expectedSum = 60;
         assertEquals(expectedSum, returnedSum);
     }
 
     @Test
     public void runReturnsCorrectlyForDesiredMaxValue() {
         // Arrange
-        final int desiredMaxValue = 1000;
+        final long desiredMaxValue = 1000;
         this.getProblem().setMaxValue(desiredMaxValue);
 
         // Act
-        int returnedSum = Integer.valueOf(this.getProblem().run());
+        long returnedSum = Integer.valueOf(this.getProblem().run());
 
         // Assert
-        final int expectedSum = 233168;
+        final long expectedSum = 233168;
         assertEquals(expectedSum, returnedSum);
     }
 

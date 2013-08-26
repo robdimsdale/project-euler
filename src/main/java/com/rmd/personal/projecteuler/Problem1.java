@@ -2,8 +2,8 @@ package com.rmd.personal.projecteuler;
 
 public class Problem1 implements Problem {
 
-    private static final int DEFAULT_MAX_VALUE = 1000;
-    private int maxValue;
+    private static final long DEFAULT_MAX_VALUE = 1000;
+    private long maxValue;
 
     public Problem1() {
         this.setMaxValue(DEFAULT_MAX_VALUE);
@@ -18,38 +18,38 @@ public class Problem1 implements Problem {
 
     @Override
     public String run() {
-        int highestMultipleOf3 = this.getHighestMultipleOfIntegerLessThanMaxValue(3); // SUPPRESS CHECKSTYLE magicNumber
-        int highestMultipleOf5 = this.getHighestMultipleOfIntegerLessThanMaxValue(5); // SUPPRESS CHECKSTYLE magicNumber
+        long highestMultipleOf3 = this.getHighestMultipleOfIntegerLessThanMaxValue(3); // SUPPRESS CHECKSTYLE magicNumber
+        long highestMultipleOf5 = this.getHighestMultipleOfIntegerLessThanMaxValue(5); // SUPPRESS CHECKSTYLE magicNumber
 
-        int highestMultipleOf3DividedBy3 = highestMultipleOf3 / 3; // SUPPRESS CHECKSTYLE magicNumber
-        int highestMultipleOf5DividedBy5 = highestMultipleOf5 / 5; // SUPPRESS CHECKSTYLE magicNumber
+        long highestMultipleOf3DividedBy3 = highestMultipleOf3 / 3; // SUPPRESS CHECKSTYLE magicNumber
+        long highestMultipleOf5DividedBy5 = highestMultipleOf5 / 5; // SUPPRESS CHECKSTYLE magicNumber
 
-        int sumOf3 = 3 * (highestMultipleOf3DividedBy3 * (highestMultipleOf3DividedBy3 + 1)) / 2; // SUPPRESS CHECKSTYLE magicNumber
-        int sumOf5 = 5 * (highestMultipleOf5DividedBy5 * (highestMultipleOf5DividedBy5 + 1)) / 2; // SUPPRESS CHECKSTYLE magicNumber
+        long sumOf3 = 3 * Common.sum(highestMultipleOf3DividedBy3); // SUPPRESS CHECKSTYLE magicNumber
+        long sumOf5 = 5 * Common.sum(highestMultipleOf5DividedBy5); // SUPPRESS CHECKSTYLE magicNumber
 
 
-        int highestMultipleOf15
+        long highestMultipleOf15
                 = this.getHighestMultipleOfIntegerLessThanMaxValue(15); // SUPPRESS CHECKSTYLE magicNumber
-        int highestMultipleOf15DividedBy15 = highestMultipleOf15 / 15; // SUPPRESS CHECKSTYLE magicNumber
+        long highestMultipleOf15DividedBy15 = highestMultipleOf15 / 15; // SUPPRESS CHECKSTYLE magicNumber
 
-        int sumOf15 = 15 * (highestMultipleOf15DividedBy15 * (highestMultipleOf15DividedBy15 + 1)) / 2; // SUPPRESS CHECKSTYLE magicNumber
+        long sumOf15 = 15 * (highestMultipleOf15DividedBy15 * (highestMultipleOf15DividedBy15 + 1)) / 2; // SUPPRESS CHECKSTYLE magicNumber
 
         return String.valueOf(sumOf3 + sumOf5 - sumOf15);
     }
 
-    private int getHighestMultipleOfIntegerLessThanMaxValue(int multiple) {
-        int highestMultiple = this.getMaxValue() - 1;
+    private long getHighestMultipleOfIntegerLessThanMaxValue(long multiple) {
+        long highestMultiple = this.getMaxValue() - 1;
         while (highestMultiple % multiple != 0) {
             highestMultiple--;
         }
         return highestMultiple;
     }
 
-    public int getMaxValue() {
+    public long getMaxValue() {
         return maxValue;
     }
 
-    public void setMaxValue(int maxValue) {
+    public void setMaxValue(long maxValue) {
         this.maxValue = maxValue;
     }
 }
