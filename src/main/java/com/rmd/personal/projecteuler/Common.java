@@ -6,7 +6,7 @@ import java.util.List;
 
 public final class Common {
 
-    private static final int MAX_PRIME_VALUE = 10000000;
+    private static final int MAX_PRIME_VALUE = 100000000;
 
     private Common() {
 
