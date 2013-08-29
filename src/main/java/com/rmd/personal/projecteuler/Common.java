@@ -1,6 +1,6 @@
 package com.rmd.personal.projecteuler;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Date;
 import java.util.List;
 
@@ -15,7 +15,7 @@ public final class Common {
     private static List<Long> primes;
 
     static {
-        primes = new ArrayList<Long>();
+        primes = new LinkedList<Long>();
         populatePrimesUpTo(MAX_PRIME_VALUE);
     }
 
