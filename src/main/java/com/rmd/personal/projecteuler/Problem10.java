@@ -25,15 +25,6 @@ public class Problem10 implements Problem {
 
     @Override
     public String run() {
-
-        long currentPrime = 2L;
-        long primeSum = 0;
-
-        while (currentPrime < this.getMaxPrime()) {
-            primeSum += currentPrime;
-            currentPrime = Common.getPrimes().get(Common.getPrimes().indexOf(currentPrime) + 1);
-        }
-
-        return String.valueOf(primeSum);
+        return String.valueOf(Common.sumPrimesUpTo(this.getMaxPrime()));
     }
 }
