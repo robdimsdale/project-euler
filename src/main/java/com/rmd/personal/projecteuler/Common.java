@@ -42,6 +42,23 @@ public final class Common {
         System.out.println("done - took " + (endTime.getTime() - startTime.getTime()) + " ms.");
     }
 
+    protected static long sumPrimesUpTo(int end) {
+        boolean[] values = new boolean[end];
+
+        long sum = 0;
+        
+        for (int i = 2; i < end; i++) {
+            if (!values[i]) {
+                primes.add((long) i);
+                sum += i;
+                for (int j = i; j < end; j += i) {
+                    values[j] = true;
+                }
+            }
+        }
+        return sum;
+    }
+
     protected static long sum(long n) {
         return (n * (n + 1)) / 2;
     }

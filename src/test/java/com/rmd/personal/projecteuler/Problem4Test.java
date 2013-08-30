@@ -1,5 +1,6 @@
 package com.rmd.personal.projecteuler;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -49,6 +50,7 @@ public class Problem4Test extends AbstractProblemTestBase<Problem4> {
     }
 
     @Test
+    @Ignore
     public void runReturnsCorrectlyForProductOfFiveDigits() {
         // Arrange
         final int digitCount = 5;
@@ -63,6 +65,7 @@ public class Problem4Test extends AbstractProblemTestBase<Problem4> {
     }
 
     @Test
+    @Ignore
     public void runReturnsCorrectlyForProductOfSixDigits() {
         // Arrange
         final int digitCount = 6;
@@ -77,6 +80,7 @@ public class Problem4Test extends AbstractProblemTestBase<Problem4> {
     }
 
     @Test
+    @Ignore
     public void runReturnsCorrectlyForProductOfSevenDigits() {
         // Arrange
         final int digitCount = 7;
