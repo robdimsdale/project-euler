@@ -9,6 +9,7 @@ public final class Main {
     private List<Problem> problemList;
 
     private Main() {
+        Common.getPrimes();
         this.problemList = new ArrayList<Problem>();
         this.getProblemList().add(new Problem1());
         this.getProblemList().add(new Problem2());
@@ -22,6 +23,7 @@ public final class Main {
         this.getProblemList().add(new Problem10());
         this.getProblemList().add(new Problem11());
         this.getProblemList().add(new Problem12());
+        this.getProblemList().add(new Problem13());
     }
 
     private List<Problem> getProblemList() {
