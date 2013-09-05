@@ -20,6 +20,7 @@ public final class Main {
         this.getProblemList().add(new Problem8());
         this.getProblemList().add(new Problem9());
         this.getProblemList().add(new Problem10());
+        this.getProblemList().add(new Problem11());
     }
 
     private List<Problem> getProblemList() {
