@@ -1,133 +1,71 @@
 package com.rmd.personal.projecteuler;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Problem14 implements Problem {
 
-    private static final int DEFAULT_GRID_SIZE = 20;
+    private static final long DEFAULT_START_VALUE = 1;
+    private static final long DEFAULT_END_VALUE = 1000000;
 
-    private int gridSizeX;
-    private int gridSizeY;
-
-    private Map<XYPair, Long> routesAvailableMappedByXY;
+    private long startVal;
+    private long endVal;
 
     public Problem14() {
-        this.setGridSizeX(DEFAULT_GRID_SIZE);
-        this.setGridSizeY(DEFAULT_GRID_SIZE);
-        routesAvailableMappedByXY = new HashMap<XYPair, Long>();
+        this.setStartVal(DEFAULT_START_VALUE);
+        this.setEndVal(DEFAULT_END_VALUE);
     }
 
-    public int getGridSizeX() {
-        return gridSizeX;
+    public long getStartVal() {
+        return startVal;
     }
 
-    public int getGridSizeY() {
-        return gridSizeY;
+    public void setStartVal(long startVal) {
+        this.startVal = startVal;
     }
 
-    public void setGridSizeX(int gridSizeX) {
-        this.gridSizeX = gridSizeX;
+    public long getEndVal() {
+        return endVal;
     }
 
-    public void setGridSizeY(int gridSizeY) {
-        this.gridSizeY = gridSizeY;
-    }
-
-    private Map<XYPair, Long> getRoutesAvailableMappedByXY() {
-        return routesAvailableMappedByXY;
+    public void setEndVal(long endVal) {
+        this.endVal = endVal;
     }
 
     @Override
     public String getDescription() {
-        return "Starting in the top left corner of a 2×2 grid, and only being able to move to the right and down,\n"
-                + " there are exactly 6 routes to the bottom right corner.\n\n"
-                + "How many such routes are there through a 20×20 grid?";
+        return "The following iterative sequence is defined for the set of positive integers:\n\n"
+                + "n → n/2 (n is even)\n"
+                + "n → 3n + 1 (n is odd)\n\n"
+                + "Using the rule above and starting with 13, we generate the following sequence:\n\n"
+                + "13 → 40 → 20 → 10 → 5 → 16 → 8 → 4 → 2 → 1\n"
+                + "It can be seen that this sequence (starting at 13 and finishing at 1) contains 10 terms. Although it"
+                + " has not been proved yet (Collatz Problem), it is thought that all starting numbers finish at 1.\n\n"
+                + "Which starting number, under one million, produces the longest chain?\n\n"
+                + "NOTE: Once the chain starts the terms are allowed to go above one million.";
     }
 
     @Override
     public String run() {
-        long routesAvailable = this.numberOfRoutes(this.getGridSizeX(), this.getGridSizeY());
-        return String.valueOf(routesAvailable);
+        int maxChainLength = 0;
+        long maxChainLengthStartingVal = 1;
+        for (long start = this.getStartVal(); start <= this.getEndVal(); start++) {
+            int chainLength = 1;
+            long currentVal = start;
+            while (currentVal != 1) {
+                currentVal = this.nextValue(currentVal);
+                chainLength++;
+            }
+            if (chainLength > maxChainLength) {
+                maxChainLength = chainLength;
+                maxChainLengthStartingVal = start;
+            }
+        }
+        return String.valueOf(maxChainLengthStartingVal);
     }
 
-    private long numberOfRoutes(int x, int y) {
-
-        if (x == 0 && y == 0) {
-            return 0;
-        }
-
-        if (x == 0 || y == 0) {
-            return 1;
-        }
-
-        if (x == 1) {
-            return y + 1;
-        }
-
-        if (y == 1) {
-            return x + 1;
-        }
-
-        // m is the bigger of the x and y, unless they're equal in which case m = n.
-        int m = x > y ? x : y;
-        int n = x > y ? y : x;
-
-        XYPair xyPair = new XYPair(m, n);
-        if (this.getRoutesAvailableMappedByXY().containsKey(xyPair)) {
-            return this.getRoutesAvailableMappedByXY().get(xyPair);
+    private long nextValue(long n) {
+        if (n % 2 == 0) {
+            return n / 2;
         } else {
-            long currentSum = 0;
-            for (int i = 0; i <= n; i++) {
-                currentSum += this.numberOfRoutes(m - 1, n - i);
-            }
-            this.getRoutesAvailableMappedByXY().put(xyPair, currentSum);
-            return currentSum;
-        }
-    }
-
-    private static class XYPair {
-        private int x;
-        private int y;
-
-        private int getX() {
-            return x;
-        }
-
-        private int getY() {
-            return y;
-        }
-
-        public XYPair(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-
-        @Override
-        public boolean equals(Object other) {
-            if (other == null) {
-                return false;
-            }
-
-            if (!(other instanceof XYPair)) {
-                return false;
-            }
-
-            XYPair otherXy = (XYPair) other;
-
-            if (this.getX() == otherXy.getX() && this.getY() == otherXy.getY()) {
-                return true;
-            }
-
-            if (this.getX() == otherXy.getY() && this.getY() == otherXy.getX()) {
-                return true;
-            }
-            return false;
-        }
-
-        @Override
-        public int hashCode() {
-            return x * x * y * y; // SUPPRESS CHECKSTYLE magicNumber
+            return 3 * n + 1; // SUPPRESS CHECKSTYLE magicNumber
         }
     }
 }

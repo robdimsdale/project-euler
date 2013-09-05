@@ -3,6 +3,7 @@ package com.rmd.personal.projecteuler;
 import java.util.Date;
 import java.util.Map;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -45,6 +46,7 @@ public class CommonTest {
     }
 
     @Test
+    @Ignore
     public void findFactorTreeReturnsCorrectlyForLargePrime() {
         long startTime = new Date().getTime();
         // Arrange
