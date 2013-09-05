@@ -37,38 +37,47 @@ public class Problem12 implements Problem {
 
     @Override
     public String run() {
-        // Start at 3 because 1 isn't a prime number
-        final long defaultStartingValue = 3L;
-        long currentValue = defaultStartingValue;
-        long triangleNumber = currentValue;
-        long triangleNumberTmp;
-        int exponent;
+        int index = 0;
 
         int factorCount = 1;
         while (factorCount <= this.getNumberOfDivisors()) {
-            factorCount = 1;
-            currentValue++;
-            triangleNumber = Common.sum(currentValue);
-            triangleNumberTmp = triangleNumber;
+            index++;
+            long firstValue;
+            long secondValue;
+            if (index % 2 == 0) {
+                firstValue = index / 2;
+                secondValue = index + 1;
+            } else {
+                firstValue = index;
+                secondValue = (index + 1) / 2;
+            }
+            factorCount = this.getDivisorCountForValue(firstValue) * this.getDivisorCountForValue(secondValue);
+        }
+        return String.valueOf(Common.sum(index));
+    }
 
-            for (long prime : Common.getPrimes()) {
-                if (prime * prime > triangleNumberTmp) {
-                    factorCount = 2 * factorCount;
-                    break;
-                }
-                exponent = 1;
-                while (triangleNumberTmp % prime == 0) {
-                    exponent++;
-                    triangleNumberTmp = triangleNumberTmp / prime;
-                }
-                if (exponent > 1) {
-                    factorCount = factorCount * exponent;
-                }
-                if (triangleNumberTmp == 1) {
-                    break;
-                }
+    private int getDivisorCountForValue(long value) {
+        int factorCount = 1;
+        long triangleNumber = value;
+        long triangleNumberTmp = triangleNumber;
+
+        for (long prime : Common.getPrimes()) {
+            if (prime * prime > triangleNumberTmp) {
+                factorCount = 2 * factorCount;
+                break;
+            }
+            int exponent = 1;
+            while (triangleNumberTmp % prime == 0) {
+                exponent++;
+                triangleNumberTmp = triangleNumberTmp / prime;
+            }
+            if (exponent > 1) {
+                factorCount = factorCount * exponent;
+            }
+            if (triangleNumberTmp == 1) {
+                break;
             }
         }
-        return String.valueOf(triangleNumber);
+        return factorCount;
     }
 }

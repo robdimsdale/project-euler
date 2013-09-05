@@ -33,4 +33,16 @@ public class Problem12Test extends AbstractProblemTestBase<Problem12> {
         final long expected = 76576500L;
         assertEquals(expected, returned);
     }
+
+    @Test
+    public void runReturnsCorrectlyForExtraHard() {
+        // Act
+        final int numberDivisors = 3000;
+        this.getProblem().setNumberOfDivisors(numberDivisors);
+        long returned = Long.valueOf(this.getProblem().run());
+
+        // Assert
+        final long expected = 102774672000L;
+        assertEquals(expected, returned);
+    }
 }
