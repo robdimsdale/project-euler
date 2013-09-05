@@ -11,7 +11,7 @@ public class Problem11Test extends AbstractProblemTestBase<Problem11> {
     }
 
     @Test
-    public void runReturnsCorrectlyForMaxPrime10() {
+    public void runReturnsCorrectlyForProvided() {
         // Arrange
         final int startColumn = 8;
         final int endColumn = startColumn;

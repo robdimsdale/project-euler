@@ -11,7 +11,7 @@ public class Problem7Test extends AbstractProblemTestBase<Problem7> {
     }
 
     @Test
-    public void runReturnsCorrectlyForPrimeIndex6() {
+    public void runReturnsCorrectlyForProvided() {
         // Arrange
         final int primeIndex = 6;
         this.getProblem().setDesiredPrimeNumberIndex(primeIndex);

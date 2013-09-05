@@ -11,7 +11,7 @@ public class Problem8Test extends AbstractProblemTestBase<Problem8> {
     }
 
     @Test
-    public void runReturnsCorrectlyForConsecutiveCount4() {
+    public void runReturnsCorrectlyForProvided() {
         // Arrange
         final int primeIndex = 4;
         this.getProblem().setNumberOfConsecutiveDigits(primeIndex);

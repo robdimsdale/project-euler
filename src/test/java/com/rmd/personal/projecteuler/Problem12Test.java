@@ -11,7 +11,7 @@ public class Problem12Test extends AbstractProblemTestBase<Problem12> {
     }
 
     @Test
-    public void runReturnsCorrectlyForMaxPrime10() {
+    public void runReturnsCorrectlyForProvided() {
         // Arrange
         final int numberOfDivisors = 5;
         this.getProblem().setNumberOfDivisors(numberOfDivisors);

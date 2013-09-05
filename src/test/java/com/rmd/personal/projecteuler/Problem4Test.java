@@ -12,7 +12,7 @@ public class Problem4Test extends AbstractProblemTestBase<Problem4> {
     }
 
     @Test
-    public void runReturnsCorrectlyForProductOfTwoDigits() {
+    public void runReturnsCorrectlyForProvided() {
         // Arrange
         final int digitCount = 2;
         this.getProblem().setNumberOfDigits(digitCount);

@@ -11,7 +11,7 @@ public class Problem1Test extends AbstractProblemTestBase<Problem1> {
     }
 
     @Test
-    public void runReturnsCorrectlyForProvidedMaxValue() {
+    public void runReturnsCorrectlyForProvided() {
         // Arrange
         final long providedMaxValue = 10;
         this.getProblem().setMaxValue(providedMaxValue);

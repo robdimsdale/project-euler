@@ -11,7 +11,7 @@ public class Problem9Test extends AbstractProblemTestBase<Problem9> {
     }
 
     @Test
-    public void runReturnsCorrectlyForTripletSum25() {
+    public void runReturnsCorrectlyForProvided() {
         // Arrange
         final int tripletSum = 12;
         this.getProblem().setTripletSum(tripletSum);

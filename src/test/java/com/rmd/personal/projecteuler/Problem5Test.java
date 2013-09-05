@@ -11,7 +11,7 @@ public class Problem5Test extends AbstractProblemTestBase<Problem5> {
     }
 
     @Test
-    public void runReturnsCorrectlyForProductUpToTen() {
+    public void runReturnsCorrectlyForProvided() {
         // Arrange
         final int maxFactor = 10;
         this.getProblem().setMaxFactor(maxFactor);

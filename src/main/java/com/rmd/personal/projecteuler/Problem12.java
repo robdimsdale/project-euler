@@ -1,7 +1,5 @@
 package com.rmd.personal.projecteuler;
 
-import java.util.Map;
-
 public class Problem12 implements Problem {
 
     private static final int DEFAULT_NUMBER_OF_DIVISORS = 500;
@@ -42,19 +40,35 @@ public class Problem12 implements Problem {
         // Start at 3 because 1 isn't a prime number
         final long defaultStartingValue = 3L;
         long currentValue = defaultStartingValue;
-        long currentSum = currentValue;
+        long triangleNumber = currentValue;
+        long triangleNumberTmp;
+        int exponent;
 
         int factorCount = 1;
         while (factorCount <= this.getNumberOfDivisors()) {
             factorCount = 1;
             currentValue++;
-            currentSum = Common.sum(currentValue);
-            Map<Long, Integer> primePowers = Common.findPrimeFactorTreeForValue(currentSum);
+            triangleNumber = Common.sum(currentValue);
+            triangleNumberTmp = triangleNumber;
 
-            for (long prime : primePowers.keySet()) {
-                factorCount *= (primePowers.get(prime) + 1);
+            for (long prime : Common.getPrimes()) {
+                if (prime * prime > triangleNumberTmp) {
+                    factorCount = 2 * factorCount;
+                    break;
+                }
+                exponent = 1;
+                while (triangleNumberTmp % prime == 0) {
+                    exponent++;
+                    triangleNumberTmp = triangleNumberTmp / prime;
+                }
+                if (exponent > 1) {
+                    factorCount = factorCount * exponent;
+                }
+                if (triangleNumberTmp == 1) {
+                    break;
+                }
             }
         }
-        return String.valueOf(currentSum);
+        return String.valueOf(triangleNumber);
     }
 }

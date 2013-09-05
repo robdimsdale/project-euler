@@ -11,7 +11,7 @@ public class Problem10Test extends AbstractProblemTestBase<Problem10> {
     }
 
     @Test
-    public void runReturnsCorrectlyForMaxPrime10() {
+    public void runReturnsCorrectlyForProvided() {
         // Arrange
         final int maxPrime = 10;
         this.getProblem().setMaxPrime(maxPrime);
