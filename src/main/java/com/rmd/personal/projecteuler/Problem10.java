@@ -25,6 +25,22 @@ public class Problem10 implements Problem {
 
     @Override
     public String run() {
-        return String.valueOf(Common.sumPrimesUpTo(this.getMaxPrime()));
+        return String.valueOf(this.sumPrimesUpTo(this.getMaxPrime()));
+    }
+
+    private long sumPrimesUpTo(int end) {
+        boolean[] values = new boolean[end];
+
+        long sum = 0;
+
+        for (int i = 2; i < end; i++) {
+            if (!values[i]) {
+                sum += i;
+                for (int j = i; j < end; j += i) {
+                    values[j] = true;
+                }
+            }
+        }
+        return sum;
     }
 }

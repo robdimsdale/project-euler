@@ -1,8 +1,10 @@
 package com.rmd.personal.projecteuler;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public final class Common {
 
@@ -15,7 +17,7 @@ public final class Common {
     private static List<Long> primes;
 
     static {
-        primes = new LinkedList<Long>();
+        primes = new ArrayList<Long>();
         populatePrimesUpTo(MAX_PRIME_VALUE);
     }
 
@@ -42,24 +44,42 @@ public final class Common {
         System.out.println("done - took " + (endTime.getTime() - startTime.getTime()) + " ms.");
     }
 
-    protected static long sumPrimesUpTo(int end) {
-        boolean[] values = new boolean[end];
+    protected static long sum(long n) {
+        return (n * (n + 1)) / 2;
+    }
 
-        long sum = 0;
-        
-        for (int i = 2; i < end; i++) {
+    protected static Map<Long, Integer> findPrimeFactorTreeForValue(long value) {
+
+        Map<Long, Integer> factorTree = new HashMap<Long, Integer>();
+
+        boolean[] values = new boolean[(int) value];
+
+        for (int i = 2; i < value; i++) {
             if (!values[i]) {
-                primes.add((long) i);
-                sum += i;
-                for (int j = i; j < end; j += i) {
+                for (int j = i; j < value; j += i) {
                     values[j] = true;
+                    if (value % j == 0 && hasOnlyMultiplesOfPrime(j, i)) {
+                        long iAsLong = Long.valueOf(i);
+                        if (factorTree.containsKey(iAsLong)) {
+                            factorTree.put(iAsLong, factorTree.get(iAsLong) + 1);
+                        } else {
+                            factorTree.put(iAsLong, 1);
+                        }
+                    }
                 }
             }
         }
-        return sum;
+
+        return factorTree;
     }
 
-    protected static long sum(long n) {
-        return (n * (n + 1)) / 2;
+    private static boolean hasOnlyMultiplesOfPrime(long value, long prime) {
+        if (value == prime) {
+            return true;
+        }
+        if (value % prime != 0) {
+            return false;
+        }
+        return hasOnlyMultiplesOfPrime(value / prime, prime);
     }
 }
