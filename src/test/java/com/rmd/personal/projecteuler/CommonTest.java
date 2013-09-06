@@ -1,6 +1,5 @@
 package com.rmd.personal.projecteuler;
 
-import java.util.Date;
 import java.util.Map;
 
 import org.junit.Ignore;
@@ -12,7 +11,6 @@ public class CommonTest {
 
     @Test
     public void findFactorTreeReturnsCorrectlyFor2DigitNumber() {
-        long startTime = new Date().getTime();
         // Arrange
         final long value = 12L;
 
@@ -23,12 +21,10 @@ public class CommonTest {
         assertEquals(2, primeFactorTree.size());
         assertEquals((Integer) 2, primeFactorTree.get(2L));
         assertEquals((Integer) 1, primeFactorTree.get(3L)); // SUPPRESS CHECKSTYLE magicNumber
-        System.out.println("DONE (2Digit): took " + (new Date().getTime() - startTime) + " ms");
     }
 
     @Test
     public void findFactorTreeReturnsCorrectlyFor7DigitNumber() {
-        long startTime = new Date().getTime();
         // Arrange
         final long value = 8004150L;
 
@@ -42,13 +38,11 @@ public class CommonTest {
         assertEquals((Integer) 2, primeFactorTree.get(5L)); // SUPPRESS CHECKSTYLE magicNumber
         assertEquals((Integer) 2, primeFactorTree.get(7L)); // SUPPRESS CHECKSTYLE magicNumber
         assertEquals((Integer) 2, primeFactorTree.get(11L)); // SUPPRESS CHECKSTYLE magicNumber
-        System.out.println("DONE (7Digit): took " + (new Date().getTime() - startTime) + " ms");
     }
 
     @Test
     @Ignore
     public void findFactorTreeReturnsCorrectlyForLargePrime() {
-        long startTime = new Date().getTime();
         // Arrange
         final int powerOf2 = 3;
         final int powerOf3 = 5;
@@ -66,6 +60,5 @@ public class CommonTest {
         assertEquals((Integer) powerOf3, primeFactorTree.get(3L)); // SUPPRESS CHECKSTYLE magicNumber
         assertEquals((Integer) powerOf17, primeFactorTree.get(17L)); // SUPPRESS CHECKSTYLE magicNumber
         assertEquals((Integer) powerOf19, primeFactorTree.get(19L)); // SUPPRESS CHECKSTYLE magicNumber
-        System.out.println("DONE (largePrime): took " + (new Date().getTime() - startTime) + " ms");
     }
 }
