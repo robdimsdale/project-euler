@@ -82,4 +82,12 @@ public final class Common {
         }
         return hasOnlyMultiplesOfPrime(value / prime, prime);
     }
+
+    protected static long sumDigitsInString(String numberAsString) {
+        long sum = 0;
+        for (int i = 0; i < numberAsString.length(); i++) {
+            sum += Integer.valueOf(numberAsString.substring(i, i + 1));
+        }
+        return sum;
+    }
 }

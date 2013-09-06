@@ -30,11 +30,6 @@ public class Problem16 implements Problem {
     public String run() {
         BigInteger bigInteger = new BigInteger("2");
         bigInteger = bigInteger.pow(this.getPower()); // SUPPRESS CHECKSTYLE magicNumber
-        String numberAsString = String.valueOf(bigInteger);
-        long sum = 0;
-        for (int i = 0; i < numberAsString.length(); i++) {
-            sum += Integer.valueOf(numberAsString.substring(i, i + 1));
-        }
-        return String.valueOf(sum);
+        return String.valueOf(Common.sumDigitsInString(String.valueOf(bigInteger)));
     }
 }
