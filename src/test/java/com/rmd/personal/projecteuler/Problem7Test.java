@@ -1,5 +1,6 @@
 package com.rmd.personal.projecteuler;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -25,6 +26,7 @@ public class Problem7Test extends AbstractProblemTestBase<Problem7> {
     }
 
     @Test
+    @Ignore
     public void runReturnsCorrectlyForPrimeIndex8() {
         // Arrange
         final int primeIndex = 8;
