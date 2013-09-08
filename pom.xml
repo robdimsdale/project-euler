@@ -9,7 +9,11 @@
 
   <properties>
     <junit.version>4.11</junit.version>
-	<main-class.location>com.rmd.personal.projecteuler.Main</main-class.location>
+    <main-class.location>com.rmd.personal.projecteuler.Main</main-class.location>
+    <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
+    
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
 
   <dependencies>
@@ -22,6 +26,16 @@
   
   <build>
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler-plugin.version}</version>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
