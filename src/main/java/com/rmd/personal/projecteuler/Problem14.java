@@ -8,6 +8,8 @@ public class Problem14 implements Problem {
     private long startVal;
     private long endVal;
 
+    private int[] chainLengths;
+
     public Problem14() {
         this.setStartVal(DEFAULT_START_VALUE);
         this.setEndVal(DEFAULT_END_VALUE);
@@ -29,6 +31,10 @@ public class Problem14 implements Problem {
         this.endVal = endVal;
     }
 
+    private int[] getChainLengths() {
+        return this.chainLengths;
+    }
+
     @Override
     public String getDescription() {
         return "The following iterative sequence is defined for the set of positive integers:\n\n"
@@ -44,21 +50,33 @@ public class Problem14 implements Problem {
 
     @Override
     public String run() {
-        int maxChainLength = 0;
+        this.chainLengths = new int[(int) this.getEndVal() + 1];
+        this.getChainLengths()[1] = 1; // 0 index is never used - we're 1-index based.
+
+        int maxChainLength = 1;
         long maxChainLengthStartingVal = 1;
+
         for (long start = this.getStartVal(); start <= this.getEndVal(); start++) {
-            int chainLength = 1;
-            long currentVal = start;
-            while (currentVal != 1) {
-                currentVal = this.nextValue(currentVal);
-                chainLength++;
-            }
+            int chainLength = this.getOrPopulateChainLength(start);
             if (chainLength > maxChainLength) {
+//                System.out.println("New maximum found: " + chainLength + " at: " + start); 
                 maxChainLength = chainLength;
                 maxChainLengthStartingVal = start;
             }
         }
         return String.valueOf(maxChainLengthStartingVal);
+    }
+
+    private int getOrPopulateChainLength(long value) {
+        if (value < this.getChainLengths().length && this.getChainLengths()[(int) value] != 0) {
+            return this.getChainLengths()[(int) value];
+        } else {
+            int count = this.getOrPopulateChainLength(this.nextValue(value)) + 1;
+            if (value < this.getChainLengths().length) {
+                this.getChainLengths()[(int) value] = count;
+            }
+            return count;
+        }
     }
 
     private long nextValue(long n) {
