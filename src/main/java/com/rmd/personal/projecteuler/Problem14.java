@@ -59,7 +59,7 @@ public class Problem14 implements Problem {
         for (long start = this.getStartVal(); start <= this.getEndVal(); start++) {
             int chainLength = this.getOrPopulateChainLength(start);
             if (chainLength > maxChainLength) {
-//                System.out.println("New maximum found: " + chainLength + " at: " + start); 
+//                System.out.println("New maximum found: " + chainLength + " at: " + start);
                 maxChainLength = chainLength;
                 maxChainLengthStartingVal = start;
             }

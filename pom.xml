@@ -14,6 +14,7 @@
     
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <maven-checkstyle-plugin.version>2.10</maven-checkstyle-plugin.version>
   </properties>
 
   <dependencies>
@@ -47,6 +48,24 @@
             </manifest>
           </archive>
         </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>${maven-checkstyle-plugin.version}</version>
+        <configuration>
+          <configLocation>checkstyle.xml</configLocation>
+          <failsOnError>true</failsOnError>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>check</goal>
+            </goals>
+            <phase>process-classes</phase>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
