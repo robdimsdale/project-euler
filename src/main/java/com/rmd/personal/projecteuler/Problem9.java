@@ -35,13 +35,13 @@ public class Problem9 implements Problem {
     }
 
     private long findProduct() {
-        int maxA = (int) Math.floor((this.getTripletSum() - 1) / 2);
-        int maxB = (int) Math.floor(this.getTripletSum() / 2);
+        int maxA = (int) Math.floor((this.getTripletSum() - 1) / 2.0);
+        int maxB = (int) Math.floor(this.getTripletSum() / 2.0);
 
         for (int a = 1; a < maxA; a++) {
             for (int b = a + 1; b < maxB; b++) {
                 int c = this.getTripletSum() - a - b;
-                if (Math.pow(a, 2) + Math.pow(b, 2) == Math.pow(c, 2)) {
+                if ((long) (Math.pow(a, 2) + Math.pow(b, 2)) == (long) Math.pow(c, 2)) {
                     return a * b * c;
                 }
             }
