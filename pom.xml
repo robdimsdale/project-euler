@@ -59,6 +59,7 @@
         <artifactId>jacoco-maven-plugin</artifactId>
         <version>${jacoco-maven-plugin.version}</version>
         <configuration>
+          <skip>${skipCoverage}</skip>
           <excludes>
             <exclude>**/Main.class</exclude>
           </excludes>
