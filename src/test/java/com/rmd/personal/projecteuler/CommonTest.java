@@ -1,5 +1,7 @@
 package com.rmd.personal.projecteuler;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
 import java.util.Map;
 
 import org.junit.Ignore;
@@ -8,6 +10,16 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class CommonTest {
+
+    @Test
+    public void constructorIsPrivate() throws Exception {
+        // Act
+        Constructor<?>[] constructors = Common.class.getDeclaredConstructors();
+
+        // Assert
+        assertEquals(1, constructors.length);
+        assertTrue(Modifier.isPrivate(constructors[0].getModifiers()));
+    }
 
     @Test
     public void findFactorTreeReturnsCorrectlyFor2DigitNumber() {
@@ -27,14 +39,14 @@ public class CommonTest {
     public void findFactorTreeReturnsCorrectlyFor3DigitNumber() {
         // Arrange
         final long value = 420;
-        
+
         // Act
         Map<Long, Integer> primeFactorTree = Common.findPrimeFactorTreeForValue(value);
 
         // Assert
-        assertEquals(4, primeFactorTree.size());
+        assertEquals(4, primeFactorTree.size()); // SUPPRESS CHECKSTYLE magicNumber
         assertEquals((Integer) 2, primeFactorTree.get(2L));
-        assertEquals((Integer) 1, primeFactorTree.get(3L)); // SUPPRESS CHECKSYTLE magicNumber
+        assertEquals((Integer) 1, primeFactorTree.get(3L)); // SUPPRESS CHECKSTYLE magicNumber
         assertEquals((Integer) 1, primeFactorTree.get(5L)); // SUPPRESS CHECKSTYLE magicNumber
         assertEquals((Integer) 1, primeFactorTree.get(7L)); // SUPPRESS CHECKSTYLE magicNumber
     }

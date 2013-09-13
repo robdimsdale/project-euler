@@ -83,6 +83,16 @@ public final class Common {
         return hasOnlyMultiplesOfPrime(value / prime, prime);
     }
 
+    protected static List<Long> findFactors(long value) {
+        List<Long> factors = new ArrayList<Long>();
+        for (long i = 1; i <= value; i++) {
+            if (value % i == 0) {
+                factors.add(i);
+            }
+        }
+        return factors;
+    }
+
     protected static long sumDigitsInString(String numberAsString) {
         long sum = 0;
         for (int i = 0; i < numberAsString.length(); i++) {
