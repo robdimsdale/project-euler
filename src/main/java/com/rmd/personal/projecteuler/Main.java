@@ -33,6 +33,7 @@ public final class Main {
         this.getProblemList().add(new Problem20());
         this.getProblemList().add(new Problem21());
         this.getProblemList().add(new Problem22());
+        this.getProblemList().add(new Problem23());
 
         this.getProblemList().add(new Problem67());
     }
