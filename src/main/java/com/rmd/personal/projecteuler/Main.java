@@ -11,34 +11,34 @@ public final class Main {
     private Main() {
         Common.getPrimes();
         this.problemList = new ArrayList<Problem>();
-        this.getProblemList().add(new Problem1());
-        this.getProblemList().add(new Problem2());
-        this.getProblemList().add(new Problem3());
-        this.getProblemList().add(new Problem4());
-        this.getProblemList().add(new Problem5());
-        this.getProblemList().add(new Problem6());
-        this.getProblemList().add(new Problem7());
-        this.getProblemList().add(new Problem8());
-        this.getProblemList().add(new Problem9());
-        this.getProblemList().add(new Problem10());
-        this.getProblemList().add(new Problem11());
-        this.getProblemList().add(new Problem12());
-        this.getProblemList().add(new Problem13());
-        this.getProblemList().add(new Problem14());
-        this.getProblemList().add(new Problem15());
-        this.getProblemList().add(new Problem16());
-        this.getProblemList().add(new Problem17());
-        this.getProblemList().add(new Problem18());
-        this.getProblemList().add(new Problem19());
-        this.getProblemList().add(new Problem20());
-        this.getProblemList().add(new Problem21());
-        this.getProblemList().add(new Problem22());
-        this.getProblemList().add(new Problem23());
-        this.getProblemList().add(new Problem24());
-        this.getProblemList().add(new Problem25());
-        this.getProblemList().add(new Problem26());
+        this.getProblemList().add(new P001());
+        this.getProblemList().add(new P002());
+        this.getProblemList().add(new P003());
+        this.getProblemList().add(new P004());
+        this.getProblemList().add(new P005());
+        this.getProblemList().add(new P006());
+        this.getProblemList().add(new P007());
+        this.getProblemList().add(new P008());
+        this.getProblemList().add(new P009());
+        this.getProblemList().add(new P010());
+        this.getProblemList().add(new P011());
+        this.getProblemList().add(new P012());
+        this.getProblemList().add(new P013());
+        this.getProblemList().add(new P014());
+        this.getProblemList().add(new P015());
+        this.getProblemList().add(new P016());
+        this.getProblemList().add(new P017());
+        this.getProblemList().add(new P018());
+        this.getProblemList().add(new P019());
+        this.getProblemList().add(new P020());
+        this.getProblemList().add(new P021());
+        this.getProblemList().add(new P022());
+        this.getProblemList().add(new P023());
+        this.getProblemList().add(new P024());
+        this.getProblemList().add(new P025());
+        this.getProblemList().add(new P026());
 
-        this.getProblemList().add(new Problem67());
+        this.getProblemList().add(new P067());
     }
 
     private List<Problem> getProblemList() {
