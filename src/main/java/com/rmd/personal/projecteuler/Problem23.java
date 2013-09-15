@@ -78,6 +78,6 @@ public class Problem23 implements Problem {
     }
 
     private boolean isAbundant(int value) {
-        return Common.sumOfFactorsPrime(value, Common.getPrimes()) > value;
+        return Common.sumOfFactorsPrime(value) > value;
     }
 }

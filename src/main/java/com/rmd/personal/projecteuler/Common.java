@@ -77,16 +77,6 @@ public final class Common {
         return value == prime || value % prime == 0 && hasOnlyMultiplesOfPrime(value / prime, prime);
     }
 
-    protected static List<Long> findFactors(long value) {
-        List<Long> factors = new ArrayList<Long>();
-        for (long i = 1; i <= value; i++) {
-            if (value % i == 0) {
-                factors.add(i);
-            }
-        }
-        return factors;
-    }
-
     protected static long sumDigitsInString(String numberAsString) {
         long sum = 0;
         for (int i = 0; i < numberAsString.length(); i++) {
@@ -116,15 +106,15 @@ public final class Common {
         return result;
     }
 
-    protected static long sumOfFactorsPrime(int number, List<Long> primelist) {
+    protected static long sumOfFactorsPrime(int number) {
         long n = number;
         long sum = 1;
-        long p = primelist.get(0);
+        long p = Common.getPrimes().get(0);
         long j;
         int i = 0;
 
-        while (p * p <= n && n > 1 && i < primelist.size()) {
-            p = primelist.get(i);
+        while (p * p <= n && n > 1 && i < Common.getPrimes().size()) {
+            p = Common.getPrimes().get(i);
             i++;
             if (n % p == 0) {
                 j = p * p;

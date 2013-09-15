@@ -46,13 +46,13 @@ public class Problem21 implements Problem {
         long sum = 0;
 
         for (int i = 2; i <= this.getEnd(); i++) {
-            long factors = Common.sumOfFactorsPrime(i, Common.getPrimes());
-            if (factors > i) {
-                this.getValueToDivisorSum().put((long) i, factors);
-            } else if (factors < i) {
-                if (this.getValueToDivisorSum().containsKey(factors)) {
-                    if (this.getValueToDivisorSum().get(factors) == i) {
-                        sum = sum + i + factors;
+            long factorSum = Common.sumOfFactorsPrime(i);
+            if (factorSum > i) {
+                this.getValueToDivisorSum().put((long) i, factorSum);
+            } else if (factorSum < i) {
+                if (this.getValueToDivisorSum().containsKey(factorSum)) {
+                    if (this.getValueToDivisorSum().get(factorSum) == i) {
+                        sum = sum + i + factorSum;
                     }
                 }
             }
