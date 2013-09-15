@@ -33,7 +33,7 @@ public class Problem23 implements Problem {
     }
 
     private void populateAbundantNumbers() {
-        for (int i = 0; i < getAbundant().length - 1; i++) {
+        for (int i = 1; i < getAbundant().length - 1; i++) {
             if (this.isAbundant(i)) {
                 this.getAbundant()[i] = true;
                 for (int j = 0; j <= i; j++) {
@@ -77,12 +77,7 @@ public class Problem23 implements Problem {
         return String.valueOf(sum);
     }
 
-    private boolean isAbundant(long value) {
-        long factorSum = 0;
-        for (long factor : Common.findFactors(value)) {
-            factorSum += factor;
-        }
-        factorSum -= value; // Proper factors, not all factors.
-        return factorSum > value;
+    private boolean isAbundant(int value) {
+        return Common.sumOfFactorsPrime(value, Common.getPrimes()) > value;
     }
 }

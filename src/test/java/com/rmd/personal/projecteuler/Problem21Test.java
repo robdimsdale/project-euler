@@ -13,16 +13,14 @@ public class Problem21Test extends AbstractProblemTestBase<Problem21> {
     @Test
     public void runReturnsCorrectlyForProvided() {
         // Arrange
-        final int start = 220;
         final int end = 284;
-        this.getProblem().setStart(start);
         this.getProblem().setEnd(end + 1);
 
         // Act
         long returned = Long.valueOf(this.getProblem().run());
 
         // Assert
-        final long expected = start + end;
+        final long expected = 220 + end; // SUPPRESS CHECKSTYLE magicNumber
         assertEquals(expected, returned);
     }
 
