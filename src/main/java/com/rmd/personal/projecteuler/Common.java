@@ -115,4 +115,32 @@ public final class Common {
         }
         return result;
     }
+
+    protected static long sumOfFactorsPrime(int number, List<Long> primelist) {
+        long n = number;
+        long sum = 1;
+        long p = primelist.get(0);
+        long j;
+        int i = 0;
+
+        while (p * p <= n && n > 1 && i < primelist.size()) {
+            p = primelist.get(i);
+            i++;
+            if (n % p == 0) {
+                j = p * p;
+                n = n / p;
+                while (n % p == 0) {
+                    j = j * p;
+                    n = n / p;
+                }
+                sum = sum * (j - 1) / (p - 1);
+            }
+        }
+
+        //A prime factor larger than the square root remains
+        if (n > 1) {
+            sum *= n + 1;
+        }
+        return sum - number;
+    }
 }
