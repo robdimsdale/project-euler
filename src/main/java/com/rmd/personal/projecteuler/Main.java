@@ -37,6 +37,7 @@ public final class Main {
         this.getProblemList().add(new P024());
         this.getProblemList().add(new P025());
         this.getProblemList().add(new P026());
+        this.getProblemList().add(new P027());
 
         this.getProblemList().add(new P067());
     }
