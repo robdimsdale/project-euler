@@ -116,17 +116,7 @@ public class P019 implements Problem {
     }
 
     protected boolean isLeapYear(int currentYear) {
-        if (currentYear % 400 == 0) { // SUPPRESS CHECKSTYLE magicNumber
-            return true;
-        }
+        return currentYear % 400 == 0 || currentYear % 100 != 0 && currentYear % 4 == 0; // SUPPRESS CHECKSTYLE magicNumber
 
-        if (currentYear % 100 == 0) { // SUPPRESS CHECKSTYLE magicNumber
-            return false;
-        }
-
-        if (currentYear % 4 == 0) { // SUPPRESS CHECKSTYLE magicNumber
-            return true;
-        }
-        return false;
     }
 }

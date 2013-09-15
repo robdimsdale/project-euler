@@ -82,21 +82,29 @@ public class P017 implements Problem {
             } else if (currentVal >= 10 && currentVal < 20) { // SUPPRESS CHECKSTYLE magicNumber
                 stringBuilder.append(this.handle10to20(currentVal));
             } else if (currentVal < 30) { // SUPPRESS CHECKSTYLE magicNumber
-                stringBuilder.append("twenty" + this.getDigitToWord().get(currentVal - 20)); // SUPPRESS CHECKSTYLE magicNumber
+                stringBuilder.append("twenty");
+                stringBuilder.append(this.getDigitToWord().get(currentVal - 20)); // SUPPRESS CHECKSTYLE magicNumber
             } else if (currentVal < 40) { // SUPPRESS CHECKSTYLE magicNumber
-                stringBuilder.append("thirty" + this.getDigitToWord().get(currentVal - 30)); // SUPPRESS CHECKSTYLE magicNumber
+                stringBuilder.append("thirty");
+                stringBuilder.append(this.getDigitToWord().get(currentVal - 30)); // SUPPRESS CHECKSTYLE magicNumber
             } else if (currentVal < 50) { // SUPPRESS CHECKSTYLE magicNumber
-                stringBuilder.append("forty" + this.getDigitToWord().get(currentVal - 40)); // SUPPRESS CHECKSTYLE magicNumber
+                stringBuilder.append("forty");
+                stringBuilder.append(this.getDigitToWord().get(currentVal - 40)); // SUPPRESS CHECKSTYLE magicNumber
             } else if (currentVal < 60) { // SUPPRESS CHECKSTYLE magicNumber
-                stringBuilder.append("fifty" + this.getDigitToWord().get(currentVal - 50)); // SUPPRESS CHECKSTYLE magicNumber
+                stringBuilder.append("fifty");
+                stringBuilder.append(this.getDigitToWord().get(currentVal - 50)); // SUPPRESS CHECKSTYLE magicNumber
             } else if (currentVal < 70) { // SUPPRESS CHECKSTYLE magicNumber
-                stringBuilder.append("sixty" + this.getDigitToWord().get(currentVal - 60)); // SUPPRESS CHECKSTYLE magicNumber
+                stringBuilder.append("sixty");
+                stringBuilder.append(this.getDigitToWord().get(currentVal - 60)); // SUPPRESS CHECKSTYLE magicNumber
             } else if (currentVal < 80) { // SUPPRESS CHECKSTYLE magicNumber
-                stringBuilder.append("seventy" + this.getDigitToWord().get(currentVal - 70)); // SUPPRESS CHECKSTYLE magicNumber
+                stringBuilder.append("seventy");
+                stringBuilder.append(this.getDigitToWord().get(currentVal - 70)); // SUPPRESS CHECKSTYLE magicNumber
             } else if (currentVal < 90) { // SUPPRESS CHECKSTYLE magicNumber
-                stringBuilder.append("eighty" + this.getDigitToWord().get(currentVal - 80)); // SUPPRESS CHECKSTYLE magicNumber
+                stringBuilder.append("eighty");
+                stringBuilder.append(this.getDigitToWord().get(currentVal - 80)); // SUPPRESS CHECKSTYLE magicNumber
             } else if (currentVal < 100) { // SUPPRESS CHECKSTYLE magicNumber
-                stringBuilder.append("ninety" + this.getDigitToWord().get(currentVal - 90)); // SUPPRESS CHECKSTYLE magicNumber
+                stringBuilder.append("ninety");
+                stringBuilder.append(this.getDigitToWord().get(currentVal - 90)); // SUPPRESS CHECKSTYLE magicNumber
             }
         }
         return String.valueOf(stringBuilder.toString().length());

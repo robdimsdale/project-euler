@@ -14,9 +14,9 @@ public class P011Test extends AbstractProblemTestBase<P011> {
     public void runReturnsCorrectlyForProvided() {
         // Arrange
         final int startColumn = 8;
-        final int endColumn = startColumn;
+        final int endColumn = 8;
         final int startRow = 6;
-        final int endRow = startRow;
+        final int endRow = 6;
 
         this.getProblem().setStartColumn(startColumn);
         this.getProblem().setEndColumn(endColumn);
