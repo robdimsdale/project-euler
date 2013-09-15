@@ -1,11 +1,11 @@
 package com.rmd.personal.projecteuler;
 
+import org.junit.Ignore;
+import org.junit.Test;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Modifier;
 import java.util.Map;
-
-import org.junit.Ignore;
-import org.junit.Test;
 
 import static org.junit.Assert.*;
 
@@ -89,5 +89,104 @@ public class CommonTest {
         assertEquals((Integer) powerOf3, primeFactorTree.get(3L)); // SUPPRESS CHECKSTYLE magicNumber
         assertEquals((Integer) powerOf17, primeFactorTree.get(17L)); // SUPPRESS CHECKSTYLE magicNumber
         assertEquals((Integer) powerOf19, primeFactorTree.get(19L)); // SUPPRESS CHECKSTYLE magicNumber
+    }
+
+    @Test
+    public void factorialReturnsCorrectlyFor0() {
+        // Arrange
+        final long n = 0;
+
+        // Act
+        long actualResult = Common.factorial(n);
+
+        // Assert
+        final long expectedResult = 1;
+        assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
+    public void factorialReturnsCorrectlyFor1() {
+        // Arrange
+        final long n = 1;
+
+        // Act
+        long actualResult = Common.factorial(n);
+
+        // Assert
+        final long expectedResult = 1;
+        assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
+    public void factorialReturnsCorrectlyFor2() {
+        // Arrange
+        final long n = 2;
+
+        // Act
+        long actualResult = Common.factorial(n);
+
+        // Assert
+        final long expectedResult = 2;
+        assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
+    public void factorialReturnsCorrectlyFor3() {
+        // Arrange
+        final long n = 3;
+
+        // Act
+        long actualResult = Common.factorial(n);
+
+        // Assert
+        final long expectedResult = 6;
+        assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
+    public void factorialReturnsCorrectlyFor39() {
+        // Arrange
+        final long n = 39;
+
+        // Act
+        long actualResult = Common.factorial(n);
+
+        // Assert
+        final long expectedResult = 2304077777655037952L;
+        assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
+    public void factorialThrowsExceptionForGreaterThan39() {
+        // Arrange
+        final long n = -1;
+
+        // Act & Assert
+        boolean caughtCorrectException = false;
+        try {
+            Common.factorial(n);
+        } catch (IllegalArgumentException e) {
+            assertTrue(e.getMessage().contains("non-negative"));
+            caughtCorrectException = true;
+        }
+
+        assertTrue(caughtCorrectException);
+    }
+
+    @Test
+    public void factorialThrowsExceptionForLessThan0() {
+        // Arrange
+        final long n = 40;
+
+        // Act & Assert
+        boolean caughtCorrectException = false;
+        try {
+            Common.factorial(n);
+        } catch (IllegalArgumentException e) {
+            assertTrue(e.getMessage().contains("39"));
+            caughtCorrectException = true;
+        }
+
+        assertTrue(caughtCorrectException);
     }
 }

@@ -59,7 +59,7 @@ public final class Common {
                 for (int j = i; j < value; j += i) {
                     values[j] = true;
                     if (value % j == 0 && hasOnlyMultiplesOfPrime(j, i)) {
-                        long iAsLong = Long.valueOf(i);
+                        long iAsLong = (long) i;
                         if (factorTree.containsKey(iAsLong)) {
                             factorTree.put(iAsLong, factorTree.get(iAsLong) + 1);
                         } else {
@@ -74,13 +74,7 @@ public final class Common {
     }
 
     private static boolean hasOnlyMultiplesOfPrime(long value, long prime) {
-        if (value == prime) {
-            return true;
-        }
-        if (value % prime != 0) {
-            return false;
-        }
-        return hasOnlyMultiplesOfPrime(value / prime, prime);
+        return value == prime || value % prime == 0 && hasOnlyMultiplesOfPrime(value / prime, prime);
     }
 
     protected static List<Long> findFactors(long value) {
@@ -99,5 +93,26 @@ public final class Common {
             sum += Integer.valueOf(numberAsString.substring(i, i + 1));
         }
         return sum;
+    }
+
+    protected static long factorial(long n) {
+        if (n == 0) {
+            return 1;
+        }
+
+        if (n < 0) {
+            throw new IllegalArgumentException("Can only calculate factorial for non-negative n.");
+        }
+
+        final long maxInput = 39;
+        if (n > maxInput) {
+            throw new IllegalArgumentException("Can only calculate factorial for max input: " + maxInput + ".");
+        }
+
+        long result = 1;
+        for (long i = 2; i <= n; i++) {
+            result *= i;
+        }
+        return result;
     }
 }
