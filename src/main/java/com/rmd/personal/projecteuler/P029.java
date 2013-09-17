@@ -24,10 +24,10 @@ public class P029 implements Problem {
     @Override
     public String getDescription() {
         return "Consider all integer combinations of ab for 2 ≤ a ≤ 5 and 2 ≤ b ≤ 5:\n\n"
-                + "22=4, 23=8, 24=16, 25=32\n"
-                + "32=9, 33=27, 34=81, 35=243\n"
-                + "42=16, 43=64, 44=256, 45=1024\n"
-                + "52=25, 53=125, 54=625, 55=3125\n"
+                + "2^2=4, 2^3=8, 2^4=16, 2^5=32\n"
+                + "3^2=9, 3^3=27, 3^4=81, 3^5=243\n"
+                + "4^2=16, 4^3=64, 4^4=256, 4^5=1024\n"
+                + "5^2=25, 5^3=125, 5^4=625, 5^5=3125\n"
                 + "If they are then placed in numerical order, with any repeats removed, "
                 + "we get the following sequence of 15 distinct terms:\n\n"
                 + "4, 8, 9, 16, 25, 27, 32, 64, 81, 125, 243, 256, 625, 1024, 3125\n\n"
