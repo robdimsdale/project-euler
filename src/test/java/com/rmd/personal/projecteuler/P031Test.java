@@ -53,6 +53,62 @@ public class P031Test extends AbstractProblemTestBase<P031> {
     }
 
     @Test
+    public void runReturnsCorrectlyFor6() {
+        // Arrange
+        final int total = 6;
+        this.getProblem().setTotal(total);
+
+        // Act
+        long returned = Long.valueOf(this.getProblem().run());
+
+        // Assert
+        final long expected = 5;
+        assertEquals(expected, returned);
+    }
+
+    @Test
+    public void runReturnsCorrectlyFor7() {
+        // Arrange
+        final int total = 7;
+        this.getProblem().setTotal(total);
+
+        // Act
+        long returned = Long.valueOf(this.getProblem().run());
+
+        // Assert
+        final long expected = 6;
+        assertEquals(expected, returned);
+    }
+
+    @Test
+    public void runReturnsCorrectlyFor8() {
+        // Arrange
+        final int total = 8;
+        this.getProblem().setTotal(total);
+
+        // Act
+        long returned = Long.valueOf(this.getProblem().run());
+
+        // Assert
+        final long expected = 7;
+        assertEquals(expected, returned);
+    }
+
+    @Test
+    public void runReturnsCorrectlyFor9() {
+        // Arrange
+        final int total = 9;
+        this.getProblem().setTotal(total);
+
+        // Act
+        long returned = Long.valueOf(this.getProblem().run());
+
+        // Assert
+        final long expected = 8;
+        assertEquals(expected, returned);
+    }
+
+    @Test
     public void runReturnsCorrectlyForDefault() {
         // Act
         long returned = Long.valueOf(this.getProblem().run());
