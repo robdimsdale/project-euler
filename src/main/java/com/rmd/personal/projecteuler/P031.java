@@ -1,4 +1,4 @@
-package com.rmd.personal.projecteuler; // SUPPRESS CHECKSTYLE fileLength
+package com.rmd.personal.projecteuler;
 
 import java.util.Arrays;
 
