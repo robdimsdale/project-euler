@@ -1,11 +1,11 @@
 package com.rmd.personal.projecteuler;
 
-import org.junit.Ignore;
-import org.junit.Test;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Modifier;
 import java.util.Map;
+
+import org.junit.Ignore;
+import org.junit.Test;
 
 import static org.junit.Assert.*;
 
@@ -219,6 +219,84 @@ public class CommonTest {
 
         // Assert
         final long expected = 123456789L;
+        assertEquals(expected, returned);
+    }
+
+    public void isPalindromeNumberReturnsTrueForEvenLengthPalindrome() {
+        // Act
+        final long palindromeNumber = 123321;
+
+        // Act & Assert
+        assertTrue(Common.isPalindromeNumber(palindromeNumber));
+    }
+
+    @Test
+    public void isPalindromeNumberReturnsTrueForOddLengthPalindrome() {
+        // Act
+        final long palindromeNumber = 12321;
+
+        // Act & Assert
+        assertTrue(Common.isPalindromeNumber(palindromeNumber));
+    }
+
+    @Test
+    public void isPalindromeNumberReturnsFalseForNonPalindrome() {
+        // Act
+        final long palindromeNumber = 123421;
+
+        // Act & Assert
+        assertFalse(Common.isPalindromeNumber(palindromeNumber));
+    }
+
+    @Test
+    public void getNumberAsBinaryStringReturnsCorrectlyForZero() {
+        // Act
+        final long number = 0;
+
+        // Act
+        String returned = Common.getNumberAsBinaryString(number);
+
+        // Assert
+        final String expected = "0";
+        assertEquals(expected, returned);
+    }
+
+    @Test
+    public void getNumberAsBinaryStringReturnsCorrectlyForOne() {
+        // Act
+        final long number = 1;
+
+        // Act
+        String returned = Common.getNumberAsBinaryString(number);
+
+        // Assert
+        final String expected = "1";
+        assertEquals(expected, returned);
+    }
+
+    @Test
+    public void getNumberAsBinaryStringReturnsCorrectlyFor585() {
+        // Act
+        final long number = 585;
+
+        // Act
+        String returned = Common.getNumberAsBinaryString(number);
+
+        // Assert
+        final String expected = "1001001001";
+        assertEquals(expected, returned);
+    }
+
+    @Test
+    public void getNumberAsBinaryStringReturnsCorrectlyFor9999999999() {
+        // Act
+        final long number = 9999999999L;
+
+        // Act
+        String returned = Common.getNumberAsBinaryString(number);
+
+        // Assert
+        final String expected = "1111111111000111110100000010101001";
         assertEquals(expected, returned);
     }
 }

@@ -38,8 +38,6 @@ public class P004 implements Problem {
         for (long numberA = startVal; numberA > 0; numberA--) {
 
             if (largestPalindrome > numberA * numberA) {
-//                System.out.println(
-//                        "^^^ can't get a * a bigger than existing largestPalindrome - break ^^^");
                 return largestPalindrome;
             }
 
@@ -47,18 +45,10 @@ public class P004 implements Problem {
                 long product = numberA * numberB;
 
                 if (product < largestPalindrome) {
-
-//                    System.out.println(numberA + " * " + numberB + " = " + product);
-//                    System.out.println(
-//                            "^^^ can't get a * b bigger than existing largestPalindrome "
-//                                    + " - break to next-smallest a ^^^");
                     break;
                 }
 
-                if (this.isPalindromeNumber(product)) {
-
-//                    System.out.println(numberA + " * " + numberB + " = " + product);
-//                    System.out.println("^^^ new largest palindrome found ^^^");
+                if (Common.isPalindromeNumber(product)) {
                     largestPalindrome = product;
                     break;
                 }
@@ -67,33 +57,5 @@ public class P004 implements Problem {
         }
 
         return -1;
-    }
-
-    private boolean isPalindromeNumber(long number) {
-        String numberAsString = String.valueOf(number);
-
-        int forwardCharIndex = 0;
-        int backwardCharIndex = numberAsString.length() - 1;
-
-        boolean keepGoing = true;
-        while (keepGoing) {
-            char forwardChar = numberAsString.charAt(forwardCharIndex);
-            char backwardChar = numberAsString.charAt(backwardCharIndex);
-
-            if (forwardChar != backwardChar) {
-                return false;
-            }
-
-            if (numberAsString.length() % 2 == 0) {
-                keepGoing = forwardCharIndex < backwardCharIndex - 1;
-            } else {
-                keepGoing = forwardCharIndex < backwardCharIndex;
-            }
-
-            forwardCharIndex++;
-            backwardCharIndex--;
-        }
-
-        return true;
     }
 }

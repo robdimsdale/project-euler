@@ -142,6 +142,51 @@ public final class Common {
         }
         return sum - number;
     }
+    protected static boolean isPalindromeNumber(long number) {
+        return Common.isPalindromeNumber(String.valueOf(number));
+    }
+
+    protected static boolean isPalindromeNumber(String numberAsString) {
+
+        int forwardCharIndex = 0;
+        int backwardCharIndex = numberAsString.length() - 1;
+
+        boolean keepGoing = true;
+        while (keepGoing) {
+            char forwardChar = numberAsString.charAt(forwardCharIndex);
+            char backwardChar = numberAsString.charAt(backwardCharIndex);
+
+            if (forwardChar != backwardChar) {
+                return false;
+            }
+
+            if (numberAsString.length() % 2 == 0) {
+                keepGoing = forwardCharIndex < backwardCharIndex - 1;
+            } else {
+                keepGoing = forwardCharIndex < backwardCharIndex;
+            }
+
+            forwardCharIndex++;
+            backwardCharIndex--;
+        }
+
+        return true;
+    }
+
+    protected static String getNumberAsBinaryString(long number) {
+        StringBuilder binary = new StringBuilder();
+
+        if (number == 0) {
+            binary.append(0);
+        }
+
+        while (number > 0) {
+            binary.append(number % 2);
+            number /= 2;
+        }
+
+        return binary.toString();
+    }
 
     public static long concatenateNumbers(long number1, long number2) {
         long concatenated = number1;
