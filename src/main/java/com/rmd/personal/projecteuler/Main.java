@@ -4,6 +4,36 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.rmd.personal.projecteuler.nine.P001;
+import com.rmd.personal.projecteuler.nine.P002;
+import com.rmd.personal.projecteuler.nine.P003;
+import com.rmd.personal.projecteuler.nine.P004;
+import com.rmd.personal.projecteuler.nine.P005;
+import com.rmd.personal.projecteuler.nine.P006;
+import com.rmd.personal.projecteuler.nine.P007;
+import com.rmd.personal.projecteuler.nine.P008;
+import com.rmd.personal.projecteuler.nine.P009;
+import com.rmd.personal.projecteuler.nineteen.P010;
+import com.rmd.personal.projecteuler.nineteen.P011;
+import com.rmd.personal.projecteuler.nineteen.P012;
+import com.rmd.personal.projecteuler.nineteen.P013;
+import com.rmd.personal.projecteuler.nineteen.P014;
+import com.rmd.personal.projecteuler.nineteen.P015;
+import com.rmd.personal.projecteuler.nineteen.P016;
+import com.rmd.personal.projecteuler.nineteen.P017;
+import com.rmd.personal.projecteuler.nineteen.P018;
+import com.rmd.personal.projecteuler.nineteen.P019;
+import com.rmd.personal.projecteuler.twentynine.P020;
+import com.rmd.personal.projecteuler.twentynine.P021;
+import com.rmd.personal.projecteuler.twentynine.P022;
+import com.rmd.personal.projecteuler.twentynine.P023;
+import com.rmd.personal.projecteuler.twentynine.P024;
+import com.rmd.personal.projecteuler.twentynine.P025;
+import com.rmd.personal.projecteuler.twentynine.P026;
+import com.rmd.personal.projecteuler.twentynine.P027;
+import com.rmd.personal.projecteuler.twentynine.P028;
+import com.rmd.personal.projecteuler.twentynine.P029;
+
 public final class Main {
 
     private List<Problem> problemList;

@@ -25,11 +25,11 @@ public final class Common {
         populatePrimesUpTo(MAX_PRIME_VALUE);
     }
 
-    protected static List<Long> getPrimes() {
+    public static List<Long> getPrimes() {
         return primes;
     }
 
-    protected static Set<Long> getPrimesAsSet() {
+    public static Set<Long> getPrimesAsSet() {
         return primesAsSet;
     }
 
@@ -53,11 +53,11 @@ public final class Common {
         System.out.println("done - took " + (endTime.getTime() - startTime.getTime()) + " ms.");
     }
 
-    protected static long sum(long n) {
+    public static long sum(long n) {
         return (n * (n + 1)) / 2;
     }
 
-    protected static Map<Long, Integer> findPrimeFactorTreeForValue(long value) {
+    public static Map<Long, Integer> findPrimeFactorTreeForValue(long value) {
 
         Map<Long, Integer> factorTree = new HashMap<Long, Integer>();
 
@@ -86,7 +86,7 @@ public final class Common {
         return value == prime || value % prime == 0 && hasOnlyMultiplesOfPrime(value / prime, prime);
     }
 
-    protected static long sumDigitsInString(String numberAsString) {
+    public static long sumDigitsInString(String numberAsString) {
         long sum = 0;
         for (int i = 0; i < numberAsString.length(); i++) {
             sum += Integer.valueOf(numberAsString.substring(i, i + 1));
@@ -94,7 +94,7 @@ public final class Common {
         return sum;
     }
 
-    protected static long factorial(long n) {
+    public static long factorial(long n) {
         if (n == 0) {
             return 1;
         }
@@ -115,7 +115,7 @@ public final class Common {
         return result;
     }
 
-    protected static long sumOfFactorsPrime(int number) {
+    public static long sumOfFactorsPrime(int number) {
         long n = number;
         long sum = 1;
         long p = Common.getPrimes().get(0);
@@ -142,11 +142,11 @@ public final class Common {
         }
         return sum - number;
     }
-    protected static boolean isPalindromeNumber(long number) {
+    public static boolean isPalindromeNumber(long number) {
         return Common.isPalindromeNumber(String.valueOf(number));
     }
 
-    protected static boolean isPalindromeNumber(String numberAsString) {
+    public static boolean isPalindromeNumber(String numberAsString) {
 
         int forwardCharIndex = 0;
         int backwardCharIndex = numberAsString.length() - 1;
@@ -173,7 +173,7 @@ public final class Common {
         return true;
     }
 
-    protected static String getNumberAsBinaryString(long number) {
+    public static String getNumberAsBinaryString(long number) {
         StringBuilder binary = new StringBuilder();
 
         if (number == 0) {
