@@ -44,6 +44,7 @@ public final class Main {
         this.getProblemList().add(new P031());
         this.getProblemList().add(new P032());
         this.getProblemList().add(new P033());
+        this.getProblemList().add(new P034());
         this.getProblemList().add(new P037());
         this.getProblemList().add(new P038());
         this.getProblemList().add(new P039());
@@ -66,7 +67,7 @@ public final class Main {
         System.out.println();
 
         for (Problem problem : this.getProblemList()) {
-            System.out.println("Problem: " + (this.getProblemList().indexOf(problem) + 1));
+            System.out.println("Problem: " + problem.getClass().getSimpleName().substring(1));
             System.out.println(problem.getDescription());
             Date startTime = new Date();
             String answer = problem.run();
