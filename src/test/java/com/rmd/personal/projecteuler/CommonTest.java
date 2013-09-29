@@ -189,4 +189,36 @@ public class CommonTest {
 
         assertTrue(caughtCorrectException);
     }
+
+    @Test
+    public void isPandigitalReturnsTrueForValidPandigitalNumber() {
+        // Arrange
+        final long number = 987654321L;
+
+        // Act & assert
+        assertTrue(Common.isPandigital(number));
+    }
+
+    @Test
+    public void isPandigitalReturnsFalseForInvalidPandigitalNumber() {
+        // Arrange
+        final long number = 1234;
+
+        // Act & assert
+        assertFalse(Common.isPandigital(number));
+    }
+
+    @Test
+    public void concatenateNumbersReturnsCorrectlyForValidNumbers() {
+        // Arrange
+        final long number1 = 1234;
+        final long number2 = 56789;
+
+        // Act
+        long returned = Common.concatenateNumbers(number1, number2);
+
+        // Assert
+        final long expected = 123456789L;
+        assertEquals(expected, returned);
+    }
 }

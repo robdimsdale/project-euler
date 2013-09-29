@@ -52,7 +52,7 @@ public class P032 implements Problem {
             for (long j = i; j <= this.getEnd(); j++) {
                 long product = i * j;
                 if (product <= DEFAULT_END) {
-                    if (this.isPandigital(i, j, product)) {
+                    if (Common.isPandigital(this.concatenateProductMultiplicandMultiplier(product, i, j))) {
                         products.add(product);
                     }
                 }
@@ -67,42 +67,9 @@ public class P032 implements Problem {
         return String.valueOf(sum);
     }
 
-    private boolean isPandigital(long multiplicand, long multiplier, long product) {
-        boolean[] containedDigits = new boolean[10]; // SUPPRESS CHECKSTYLE magicNumber
-        containedDigits[0] = true; // We don't care about the '0' digit so mask to true.
-
-        while (multiplicand > 0) {
-            int digit = (int) multiplicand % 10; // SUPPRESS CHECKSTYLE magicNumber
-            if (containedDigits[digit]) {
-                return false;
-            }
-            containedDigits[digit] = true;
-            multiplicand /= 10; // SUPPRESS CHECKSTYLE magicNumber
-        }
-
-        while (multiplier > 0) {
-            int digit = (int) multiplier % 10; // SUPPRESS CHECKSTYLE magicNumber
-            if (containedDigits[digit]) {
-                return false;
-            }
-            containedDigits[digit] = true;
-            multiplier /= 10; // SUPPRESS CHECKSTYLE magicNumber
-        }
-
-        while (product > 0) {
-            int digit = (int) product % 10; // SUPPRESS CHECKSTYLE magicNumber
-            if (containedDigits[digit]) {
-                return false;
-            }
-            containedDigits[digit] = true;
-            product /= 10; // SUPPRESS CHECKSTYLE magicNumber
-        }
-
-        for (boolean contained : containedDigits) {
-            if (!contained) {
-                return false;
-            }
-        }
-        return true;
+    private long concatenateProductMultiplicandMultiplier(long product, long multiplicand, long multiplier) {
+        long concatenated = Common.concatenateNumbers(product, multiplicand);
+        concatenated = Common.concatenateNumbers(concatenated, multiplier);
+        return concatenated;
     }
 }

@@ -142,4 +142,39 @@ public final class Common {
         }
         return sum - number;
     }
+
+    public static long concatenateNumbers(long number1, long number2) {
+        long concatenated = number1;
+
+        long tmpMultiplicand = number2;
+        while (tmpMultiplicand > 0) {
+            tmpMultiplicand /= 10; // SUPPRESS CHECKSTYLE magicNumber
+            concatenated *= 10; // SUPPRESS CHECKSTYLE magicNumber
+        }
+
+        concatenated += number2;
+
+        return concatenated;
+    }
+
+    public static boolean isPandigital(long number) {
+        boolean[] containedDigits = new boolean[10]; // SUPPRESS CHECKSTYLE magicNumber
+        containedDigits[0] = true; // We don't care about the '0' digit so mask to true.
+
+        while (number > 0) {
+            int digit = (int) number % 10; // SUPPRESS CHECKSTYLE magicNumber
+            if (containedDigits[digit]) {
+                return false;
+            }
+            containedDigits[digit] = true;
+            number /= 10; // SUPPRESS CHECKSTYLE magicNumber
+        }
+
+        for (boolean contained : containedDigits) {
+            if (!contained) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
