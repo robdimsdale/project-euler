@@ -203,7 +203,7 @@ public final class Common {
     }
 
     public static boolean isPandigital(long number) {
-        boolean[] containedDigits = new boolean[10]; // SUPPRESS CHECKSTYLE magicNumber
+        boolean[] containedDigits = new boolean[Common.findMaxDigit(number) + 1];
         containedDigits[0] = true; // We don't care about the '0' digit so mask to true.
 
         while (number > 0) {
@@ -221,5 +221,17 @@ public final class Common {
             }
         }
         return true;
+    }
+
+    private static int findMaxDigit(long number) {
+        int max = 0;
+        while (number > 0) {
+            long digit = number % 10; // SUPPRESS CHECKSTYLE magicNumber
+            if (digit > max) {
+                max = (int) digit;
+            }
+            number /= 10; // SUPPRESS CHECKSTYLE magicNumber
+        }
+        return max;
     }
 }

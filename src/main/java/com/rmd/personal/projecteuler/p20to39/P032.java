@@ -1,15 +1,17 @@
 package com.rmd.personal.projecteuler.p20to39;
 
-import com.rmd.personal.projecteuler.Common;
-import com.rmd.personal.projecteuler.Problem;
-
 import java.util.HashSet;
 import java.util.Set;
+
+import com.rmd.personal.projecteuler.Common;
+import com.rmd.personal.projecteuler.Problem;
 
 public class P032 implements Problem {
 
     private static final int DEFAULT_START = 1;
     private static final int DEFAULT_END = 9876;
+
+    private static final long SMALLEST_NINE_DIGIT_NUMBER = 100000000L;
 
     private int start;
     private int end;
@@ -55,7 +57,11 @@ public class P032 implements Problem {
             for (long j = i; j <= this.getEnd(); j++) {
                 long product = i * j;
                 if (product <= DEFAULT_END) {
-                    if (Common.isPandigital(this.concatenateProductMultiplicandMultiplier(product, i, j))) {
+                    long concatenated = this.concatenateProductMultiplicandMultiplier(product, i, j);
+                    if (concatenated < SMALLEST_NINE_DIGIT_NUMBER) {
+                        continue;
+                    }
+                    if (Common.isPandigital(concatenated)) {
                         products.add(product);
                     }
                 }

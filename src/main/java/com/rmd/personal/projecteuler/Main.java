@@ -1,5 +1,9 @@
 package com.rmd.personal.projecteuler;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 import com.rmd.personal.projecteuler.p1to19.P001;
 import com.rmd.personal.projecteuler.p1to19.P002;
 import com.rmd.personal.projecteuler.p1to19.P003;
@@ -39,10 +43,6 @@ import com.rmd.personal.projecteuler.p20to39.P036;
 import com.rmd.personal.projecteuler.p20to39.P037;
 import com.rmd.personal.projecteuler.p20to39.P038;
 import com.rmd.personal.projecteuler.p20to39.P039;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 public final class Main {
 
@@ -91,6 +91,7 @@ public final class Main {
         this.getProblemList().add(new P038());
         this.getProblemList().add(new P039());
         this.getProblemList().add(new P040());
+        this.getProblemList().add(new P041());
 
 
         this.getProblemList().add(new P067());

@@ -202,7 +202,7 @@ public class CommonTest {
     @Test
     public void isPandigitalReturnsFalseForInvalidPandigitalNumber() {
         // Arrange
-        final long number = 1234;
+        final long number = 1123;
 
         // Act & assert
         assertFalse(Common.isPandigital(number));
@@ -222,6 +222,7 @@ public class CommonTest {
         assertEquals(expected, returned);
     }
 
+    @Test
     public void isPalindromeNumberReturnsTrueForEvenLengthPalindrome() {
         // Act
         final long palindromeNumber = 123321;
