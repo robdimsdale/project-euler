@@ -92,6 +92,7 @@ public final class Main {
         this.getProblemList().add(new P039());
         this.getProblemList().add(new P040());
         this.getProblemList().add(new P041());
+        this.getProblemList().add(new P042());
 
 
         this.getProblemList().add(new P067());
