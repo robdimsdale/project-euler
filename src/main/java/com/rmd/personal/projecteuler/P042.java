@@ -1,22 +1,18 @@
 package com.rmd.personal.projecteuler;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class P042 implements Problem {
 
     private static final int DEFAULT_START_INDEX = 0;
 
     private List<String> words;
-    private Set<Long> triangleNumbers;
     private int startIndex;
     private int endIndex;
 
     public P042() {
         this.populateWords();
-        this.populateTriangleNumbers();
         this.setStartIndex(DEFAULT_START_INDEX);
         this.setEndIndex(this.getWords().size() - 1);
     }
@@ -35,10 +31,6 @@ public class P042 implements Problem {
 
     public void setEndIndex(int endIndex) {
         this.endIndex = endIndex;
-    }
-
-    public Set<Long> getTriangleNumbers() {
-        return triangleNumbers;
     }
 
     private List<String> getWords() {
@@ -71,21 +63,12 @@ public class P042 implements Problem {
         return String.valueOf(count);
     }
 
-    private void populateTriangleNumbers() {
-        this.triangleNumbers = new HashSet<Long>();
-        final int maxTriangleNumberIndex = 1000000;
-        for (int i = 0; i <= maxTriangleNumberIndex; i++) {
-            long triangleNumber = (i * (i + 1)) / 2;
-            this.getTriangleNumbers().add(triangleNumber);
-        }
-    }
-
     private boolean isTriangleWord(String word) {
         long wordSum = 0;
         for (char c : word.toCharArray()) {
             wordSum += c - 'A' + 1;
         }
-        return this.getTriangleNumbers().contains(wordSum);
+        return Common.isTriangle(wordSum);
     }
 
     private void populateWords() { // SUPPRESS CHECKSTYLE methodLength

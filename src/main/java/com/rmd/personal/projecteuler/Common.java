@@ -234,4 +234,16 @@ public final class Common {
         }
         return max;
     }
+
+    public static boolean isTriangle(long number) {
+        return (-1 + Math.sqrt(1 + 8 * number)) % 2 == 0; // SUPPRESS CHECKSTYLE magicNumber
+    }
+
+    public static boolean isPentagonal(long number) {
+        return (1 + Math.sqrt(1 + 24 * number)) % 6 == 0; // SUPPRESS CHECKSTYLE magicNumber
+    }
+
+    public static boolean isHexagonal(long number) {
+        return (1 + Math.sqrt(1 + 8 * number)) % 4 == 0; // SUPPRESS CHECKSTYLE magicNumber
+    }
 }

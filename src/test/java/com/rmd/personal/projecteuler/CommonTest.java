@@ -300,4 +300,52 @@ public class CommonTest {
         final String expected = "1111111111000111110100000010101001";
         assertEquals(expected, returned);
     }
+
+    @Test
+    public void isTriangleReturnsTrueForValidTriangleNumber() {
+        // Arrange
+        final long value = 15;
+        // Act & Assert
+        assertTrue(Common.isTriangle(value));
+    }
+
+    @Test
+    public void isTriangleReturnsFalseForInvalidTriangleNumber() {
+        // Arrange
+        final long value = 16;
+        // Act & Assert
+        assertFalse(Common.isTriangle(value));
+    }
+
+    @Test
+    public void isPentagonalReturnsTrueForValidPentagonalNumber() {
+        // Arrange
+        final long value = 35;
+        // Act & Assert
+        assertTrue(Common.isPentagonal(value));
+    }
+
+    @Test
+    public void isPentagonalReturnsFalseForInvalidHexagonalNumber() {
+        // Arrange
+        final long value = 36;
+        // Act & Assert
+        assertFalse(Common.isPentagonal(value));
+    }
+
+    @Test
+    public void isHexagonalReturnsTrueForValidHexagonalNumber() {
+        // Arrange
+        final long value = 45;
+        // Act & Assert
+        assertTrue(Common.isHexagonal(value));
+    }
+
+    @Test
+    public void isHexagonalReturnsFalseForInvalidPentagonalNumber() {
+        // Arrange
+        final long value = 46;
+        // Act & Assert
+        assertFalse(Common.isHexagonal(value));
+    }
 }
