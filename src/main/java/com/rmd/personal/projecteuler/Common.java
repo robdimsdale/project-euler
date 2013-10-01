@@ -246,4 +246,8 @@ public final class Common {
     public static boolean isHexagonal(long number) {
         return (1 + Math.sqrt(1 + 8 * number)) % 4 == 0; // SUPPRESS CHECKSTYLE magicNumber
     }
+
+    public static boolean isSquare(long number) {
+        return Math.sqrt(number) % 1 == 0;
+    }
 }

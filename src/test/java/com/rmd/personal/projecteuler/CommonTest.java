@@ -348,4 +348,20 @@ public class CommonTest {
         // Act & Assert
         assertFalse(Common.isHexagonal(value));
     }
+
+    @Test
+    public void isSquareReturnsTrueForValidSquareNumber() {
+        // Arrange
+        final long value = 36;
+        // Act & Assert
+        assertTrue(Common.isSquare(value));
+    }
+
+    @Test
+    public void isSquareReturnsFalseForInvalidSquareNumber() {
+        // Arrange
+        final long value = 37;
+        // Act & Assert
+        assertFalse(Common.isSquare(value));
+    }
 }
