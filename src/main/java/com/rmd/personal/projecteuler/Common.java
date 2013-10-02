@@ -57,33 +57,43 @@ public final class Common {
         return (n * (n + 1)) / 2;
     }
 
-    public static Map<Long, Integer> findPrimeFactorTreeForValue(long value) {
-
+    public static Map<Long, Integer> findPrimeFactorTreeForValue(long number) {
         Map<Long, Integer> factorTree = new HashMap<Long, Integer>();
 
-        boolean[] values = new boolean[(int) value];
+        boolean isPrimeFactor;
 
-        for (int i = 2; i < value; i++) {
-            if (!values[i]) {
-                for (int j = i; j < value; j += i) {
-                    values[j] = true;
-                    if (value % j == 0 && hasOnlyMultiplesOfPrime(j, i)) {
-                        long iAsLong = (long) i;
-                        if (factorTree.containsKey(iAsLong)) {
-                            factorTree.put(iAsLong, factorTree.get(iAsLong) + 1);
-                        } else {
-                            factorTree.put(iAsLong, 1);
-                        }
-                    }
+        for (int i = 0; i < Common.getPrimes().size(); i++) {
+            long currentPrime = Common.getPrimes().get(i);
+            // If the current prime squared is greater than the current value then the current value is a prime.
+            // The exponent of that prime is 1, and we can return as we know there are no more prime factors.
+            if (currentPrime * currentPrime > number) {
+                factorTree.put(currentPrime, 1);
+                return factorTree;
+            }
+
+            int currentFactorCount = 0;
+
+            isPrimeFactor = false;
+            while (number % currentPrime == 0) {
+                isPrimeFactor = true;
+                number = number / Common.getPrimes().get(i);
+                currentFactorCount++;
+            }
+
+            if (isPrimeFactor) {
+                if (factorTree.containsKey(currentPrime)) {
+                    factorTree.put(currentPrime, factorTree.get(currentPrime) + currentFactorCount);
+                } else {
+                    factorTree.put(currentPrime, currentFactorCount);
                 }
             }
+
+            // If there is no remainder, return the count
+            if (number == 1) {
+                return factorTree;
+            }
         }
-
         return factorTree;
-    }
-
-    private static boolean hasOnlyMultiplesOfPrime(long value, long prime) {
-        return value == prime || value % prime == 0 && hasOnlyMultiplesOfPrime(value / prime, prime);
     }
 
     public static long sumDigitsInString(String numberAsString) {
