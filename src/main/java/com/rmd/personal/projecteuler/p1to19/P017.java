@@ -23,13 +23,13 @@ public class P017 implements Problem {
         this.digitToWord.put(0, "");
         this.digitToWord.put(1, "one");
         this.digitToWord.put(2, "two");
-        this.digitToWord.put(3, "three"); // SUPPRESS CHECKSTYLE magicNumber
-        this.digitToWord.put(4, "four"); // SUPPRESS CHECKSTYLE magicNumber
-        this.digitToWord.put(5, "five"); // SUPPRESS CHECKSTYLE magicNumber
-        this.digitToWord.put(6, "six"); // SUPPRESS CHECKSTYLE magicNumber
-        this.digitToWord.put(7, "seven"); // SUPPRESS CHECKSTYLE magicNumber
-        this.digitToWord.put(8, "eight"); // SUPPRESS CHECKSTYLE magicNumber
-        this.digitToWord.put(9, "nine"); // SUPPRESS CHECKSTYLE magicNumber
+        this.digitToWord.put(3, "three");
+        this.digitToWord.put(4, "four");
+        this.digitToWord.put(5, "five");
+        this.digitToWord.put(6, "six");
+        this.digitToWord.put(7, "seven");
+        this.digitToWord.put(8, "eight");
+        this.digitToWord.put(9, "nine");
     }
 
     public int getStart() {
@@ -68,45 +68,45 @@ public class P017 implements Problem {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = this.getStart(); i <= this.getEnd(); i++) {
             int currentVal = i;
-            if (i >= 100) {  // SUPPRESS CHECKSTYLE magicNumber
+            if (i >= 100) {
                 stringBuilder.append(this.getDigitToWord().get(i / 100)); // SUPPRESS CHECKSTYLE lineLength
                 stringBuilder.append("hundred");
-                if (currentVal % 100 != 0) { // SUPPRESS CHECKSTYLE magicNumber
+                if (currentVal % 100 != 0) {
                     stringBuilder.append("and");
                 }
-                while (currentVal >= 100) { // SUPPRESS CHECKSTYLE magicNumber
-                    currentVal -= 100; // SUPPRESS CHECKSTYLE magicNumber
+                while (currentVal >= 100) {
+                    currentVal -= 100;
                 }
             }
 
-            if (currentVal < 10) { // SUPPRESS CHECKSTYLE magicNumber
+            if (currentVal < 10) {
                 stringBuilder.append(this.getDigitToWord().get(currentVal));
-            } else if (currentVal >= 10 && currentVal < 20) { // SUPPRESS CHECKSTYLE magicNumber
+            } else if (currentVal >= 10 && currentVal < 20) {
                 stringBuilder.append(this.handle10to20(currentVal));
-            } else if (currentVal < 30) { // SUPPRESS CHECKSTYLE magicNumber
+            } else if (currentVal < 30) {
                 stringBuilder.append("twenty");
-                stringBuilder.append(this.getDigitToWord().get(currentVal - 20)); // SUPPRESS CHECKSTYLE magicNumber
-            } else if (currentVal < 40) { // SUPPRESS CHECKSTYLE magicNumber
+                stringBuilder.append(this.getDigitToWord().get(currentVal - 20));
+            } else if (currentVal < 40) {
                 stringBuilder.append("thirty");
-                stringBuilder.append(this.getDigitToWord().get(currentVal - 30)); // SUPPRESS CHECKSTYLE magicNumber
-            } else if (currentVal < 50) { // SUPPRESS CHECKSTYLE magicNumber
+                stringBuilder.append(this.getDigitToWord().get(currentVal - 30));
+            } else if (currentVal < 50) {
                 stringBuilder.append("forty");
-                stringBuilder.append(this.getDigitToWord().get(currentVal - 40)); // SUPPRESS CHECKSTYLE magicNumber
-            } else if (currentVal < 60) { // SUPPRESS CHECKSTYLE magicNumber
+                stringBuilder.append(this.getDigitToWord().get(currentVal - 40));
+            } else if (currentVal < 60) {
                 stringBuilder.append("fifty");
-                stringBuilder.append(this.getDigitToWord().get(currentVal - 50)); // SUPPRESS CHECKSTYLE magicNumber
-            } else if (currentVal < 70) { // SUPPRESS CHECKSTYLE magicNumber
+                stringBuilder.append(this.getDigitToWord().get(currentVal - 50));
+            } else if (currentVal < 70) {
                 stringBuilder.append("sixty");
-                stringBuilder.append(this.getDigitToWord().get(currentVal - 60)); // SUPPRESS CHECKSTYLE magicNumber
-            } else if (currentVal < 80) { // SUPPRESS CHECKSTYLE magicNumber
+                stringBuilder.append(this.getDigitToWord().get(currentVal - 60));
+            } else if (currentVal < 80) {
                 stringBuilder.append("seventy");
-                stringBuilder.append(this.getDigitToWord().get(currentVal - 70)); // SUPPRESS CHECKSTYLE magicNumber
-            } else if (currentVal < 90) { // SUPPRESS CHECKSTYLE magicNumber
+                stringBuilder.append(this.getDigitToWord().get(currentVal - 70));
+            } else if (currentVal < 90) {
                 stringBuilder.append("eighty");
-                stringBuilder.append(this.getDigitToWord().get(currentVal - 80)); // SUPPRESS CHECKSTYLE magicNumber
-            } else if (currentVal < 100) { // SUPPRESS CHECKSTYLE magicNumber
+                stringBuilder.append(this.getDigitToWord().get(currentVal - 80));
+            } else if (currentVal < 100) {
                 stringBuilder.append("ninety");
-                stringBuilder.append(this.getDigitToWord().get(currentVal - 90)); // SUPPRESS CHECKSTYLE magicNumber
+                stringBuilder.append(this.getDigitToWord().get(currentVal - 90));
             }
         }
         return String.valueOf(stringBuilder.toString().length());
@@ -116,25 +116,25 @@ public class P017 implements Problem {
         switch (currentVal) {
             default:
                 throw new IllegalArgumentException("Unrecognized value: " + currentVal);
-            case 10: // SUPPRESS CHECKSTYLE magicNumber
+            case 10:
                 return "ten";
-            case 11: // SUPPRESS CHECKSTYLE magicNumber
+            case 11:
                 return "eleven";
-            case 12: // SUPPRESS CHECKSTYLE magicNumber
+            case 12:
                 return "twelve";
-            case 13: // SUPPRESS CHECKSTYLE magicNumber
+            case 13:
                 return "thirteen";
-            case 14: // SUPPRESS CHECKSTYLE magicNumber
+            case 14:
                 return "fourteen";
-            case 15: // SUPPRESS CHECKSTYLE magicNumber
+            case 15:
                 return "fifteen";
-            case 16: // SUPPRESS CHECKSTYLE magicNumber
+            case 16:
                 return "sixteen";
-            case 17: // SUPPRESS CHECKSTYLE magicNumber
+            case 17:
                 return "seventeen";
-            case 18: // SUPPRESS CHECKSTYLE magicNumber
+            case 18:
                 return "eighteen";
-            case 19: // SUPPRESS CHECKSTYLE magicNumber
+            case 19:
                 return "nineteen";
         }
     }

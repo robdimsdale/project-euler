@@ -21,7 +21,7 @@ public class P021Test extends AbstractProblemTestBase<P021> {
         long returned = Long.valueOf(this.getProblem().run());
 
         // Assert
-        final long expected = 220 + end; // SUPPRESS CHECKSTYLE magicNumber
+        final long expected = 220 + end;
         assertEquals(expected, returned);
     }
 

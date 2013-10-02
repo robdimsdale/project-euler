@@ -63,7 +63,7 @@ public class P026 implements Problem {
         int decimalDigitIndex = 0;
         while (!stateToDecimalDigitIndex.containsKey(state)) {
             stateToDecimalDigitIndex.put(state, decimalDigitIndex);
-            state = (state * 10) % i; // SUPPRESS CHECKSTYLE magicNumber
+            state = (state * 10) % i;
             decimalDigitIndex++;
         }
         return decimalDigitIndex - stateToDecimalDigitIndex.get(state);

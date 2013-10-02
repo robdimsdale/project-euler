@@ -16,7 +16,7 @@ public class P034 implements Problem {
         this.setStart(DEFAULT_START);
         this.setEnd(DEFAULT_END);
 
-        this.singleDigitFactorials = new long[10]; // SUPPRESS CHECKSTYLE magicNumber
+        this.singleDigitFactorials = new long[10];
         this.getSingleDigitFactorials()[0] = 1;
     }
 
@@ -55,8 +55,8 @@ public class P034 implements Problem {
             long currentSum = 0;
             int tmpI = i;
             while (tmpI > 0) {
-                currentSum += this.getFactorialForDigit(tmpI % 10); // SUPPRESS CHECKSTYLE magicNumber
-                tmpI /= 10; // SUPPRESS CHECKSTYLE magicNumber
+                currentSum += this.getFactorialForDigit(tmpI % 10);
+                tmpI /= 10;
             }
             if (i == currentSum) {
                 sumOfCuriousNumbers += currentSum;

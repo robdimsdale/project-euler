@@ -64,11 +64,11 @@ public class P033 implements Problem {
         List<Integer> denominators = new ArrayList<Integer>();
 
         for (int i = this.getNumeratorStart(); i <= this.getNumeratorEnd(); i++) {
-            if (i % 10 == 0) { // SUPPRESS CHECKSTYLE magicNumber
+            if (i % 10 == 0) {
                 continue;
             }
             for (int j = i + 1; j <= this.getDenominatorEnd(); j++) {
-                if (j % 10 == 0) { // SUPPRESS CHECKSTYLE magicNumber
+                if (j % 10 == 0) {
                     continue;
                 }
                 int[] possibleCuriousFraction = this.possibleCuriousFraction(i, j);
@@ -107,8 +107,8 @@ public class P033 implements Problem {
     private int[] possibleCuriousFraction(int numerator, int denominator) {
         double originalValue = (double) numerator / (double) denominator;
 
-        int[] numeratorDigits = {(numerator / 10) % 10, numerator % 10}; // SUPPRESS CHECKSTYLE magicNumber
-        int[] denominatorDigits = {(denominator / 10) % 10, denominator % 10}; // SUPPRESS CHECKSTYLE magicNumber
+        int[] numeratorDigits = {(numerator / 10) % 10, numerator % 10};
+        int[] denominatorDigits = {(denominator / 10) % 10, denominator % 10};
 
         int cancelledNumeratorDigit = 0;
         int cancelledDenominatorDigit = 0;

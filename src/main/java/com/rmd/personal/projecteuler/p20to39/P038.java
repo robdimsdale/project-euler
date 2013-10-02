@@ -55,7 +55,7 @@ public class P038 implements Problem {
 
         for (int i = this.getStart(); i <= this.getEnd(); i++) {
             long concatenation = i;
-            for (int j = 2; j <= 9; j++) { // SUPPRESS CHECKSTYLE magicNumber
+            for (int j = 2; j <= 9; j++) {
                 concatenation = Common.concatenateNumbers(concatenation, i * j);
                 if (concatenation > largest9DigitNumber) {
                     break;

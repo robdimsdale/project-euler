@@ -36,7 +36,7 @@ public class P030 implements Problem {
     public String run() {
         long sum = 0;
 
-        for (long val = 0; val <= 355000; val++) { // SUPPRESS CHECKSTYLE magicNumber
+        for (long val = 0; val <= 355000; val++) {
             if (this.getDigitsToPowerOfNumDigitsSum(val) == val) {
                 sum += val;
             }
@@ -51,8 +51,8 @@ public class P030 implements Problem {
         long sum = 0;
 
         while (value > 0) {
-            sum += Math.pow((value % 10), this.getDigits()); // SUPPRESS CHECKSTYLE magicNumber
-            value = value / 10; // SUPPRESS CHECKSTYLE magicNumber
+            sum += Math.pow((value % 10), this.getDigits());
+            value = value / 10;
         }
 
         return sum;

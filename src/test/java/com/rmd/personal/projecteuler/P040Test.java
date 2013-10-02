@@ -18,7 +18,7 @@ public class P040Test extends AbstractProblemTestBase<P040> {
         // Arrange
         final int max = 20;
         final Set<Integer> indices = new HashSet<Integer>();
-        indices.add(12); // SUPPRESS CHECKSTYLE magicNumber
+        indices.add(12);
         this.getProblem().setMax(max);
         this.getProblem().setIndices(indices);
 

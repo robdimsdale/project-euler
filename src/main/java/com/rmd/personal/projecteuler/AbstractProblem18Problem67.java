@@ -42,10 +42,10 @@ public abstract class AbstractProblem18Problem67 implements Problem {
     }
 
     private void populateProvidedTriangle() {
-        this.getTriangle().put(0, new int[]{3}); // SUPPRESS CHECKSTYLE magicNumber
-        this.getTriangle().put(1, new int[]{7, 4}); // SUPPRESS CHECKSTYLE magicNumber
-        this.getTriangle().put(2, new int[]{2, 4, 6}); // SUPPRESS CHECKSTYLE magicNumber
-        this.getTriangle().put(3, new int[]{8, 5, 9, 3}); // SUPPRESS CHECKSTYLE magicNumber
+        this.getTriangle().put(0, new int[]{3});
+        this.getTriangle().put(1, new int[]{7, 4});
+        this.getTriangle().put(2, new int[]{2, 4, 6});
+        this.getTriangle().put(3, new int[]{8, 5, 9, 3});
     }
 
     protected abstract void populateTriangle();

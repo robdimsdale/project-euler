@@ -165,7 +165,9 @@
         </module>
         <module name="IllegalInstantiation"/>
         <module name="InnerAssignment"/>
-        <module name="MagicNumber"/>
+      <!-- We don't want to use this because there's a lot of magic numbers in this project (e.g. x % 10 for a digit)
+           and it's a pain to add suppressions everywhere-->
+        <!--<module name="MagicNumber"/>-->
         <module name="MissingSwitchDefault"/>
       <!-- We can't use this because Checkstyle cannot find our custom exceptions -->
         <!--<module name="RedundantThrows"/>-->

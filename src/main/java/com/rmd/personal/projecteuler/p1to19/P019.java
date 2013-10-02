@@ -62,13 +62,13 @@ public class P019 implements Problem {
             if (this.transitionMonth(dayOfMonth, month, year)) {
                 dayOfMonth = 1;
                 month++;
-                if (month > 12) { // SUPPRESS CHECKSTYLE magicNumber
+                if (month > 12) {
                     month = 1;
                     year++;
                 }
             }
 
-            if (dayOfWeek == 7) { // SUPPRESS CHECKSTYLE magicNumber
+            if (dayOfWeek == 7) {
                 dayOfWeek = 0; // We have a sunday
                 if (dayOfMonth == 1) {
                     count++;
@@ -92,25 +92,25 @@ public class P019 implements Problem {
                     return (currentDay > DAYS_IN_FEB_LEAP_YEAR);
                 }
                 return (currentDay > DAYS_IN_FEB);
-            case 3: // SUPPRESS CHECKSTYLE magicNumber
+            case 3:
                 return (currentDay > DAYS_IN_MAR);
-            case 4: // SUPPRESS CHECKSTYLE magicNumber
+            case 4:
                 return (currentDay > DAYS_IN_APR);
-            case 5: // SUPPRESS CHECKSTYLE magicNumber
+            case 5:
                 return (currentDay > DAYS_IN_MAY);
-            case 6: // SUPPRESS CHECKSTYLE magicNumber
+            case 6:
                 return (currentDay > DAYS_IN_JUN);
-            case 7: // SUPPRESS CHECKSTYLE magicNumber
+            case 7:
                 return (currentDay > DAYS_IN_JUL);
-            case 8: // SUPPRESS CHECKSTYLE magicNumber
+            case 8:
                 return (currentDay > DAYS_IN_AUG);
-            case 9: // SUPPRESS CHECKSTYLE magicNumber
+            case 9:
                 return (currentDay > DAYS_IN_SEP);
-            case 10: // SUPPRESS CHECKSTYLE magicNumber
+            case 10:
                 return (currentDay > DAYS_IN_OCT);
-            case 11: // SUPPRESS CHECKSTYLE magicNumber
+            case 11:
                 return (currentDay > DAYS_IN_NOV);
-            case 12: // SUPPRESS CHECKSTYLE magicNumber
+            case 12:
                 return (currentDay > DAYS_IN_DEC);
             default:
                 throw new IllegalArgumentException("Unspupported month: " + currentMonth);
@@ -118,7 +118,7 @@ public class P019 implements Problem {
     }
 
     protected boolean isLeapYear(int currentYear) {
-        return currentYear % 400 == 0 || currentYear % 100 != 0 && currentYear % 4 == 0; // SUPPRESS CHECKSTYLE magicNumber
+        return currentYear % 400 == 0 || currentYear % 100 != 0 && currentYear % 4 == 0;
 
     }
 }

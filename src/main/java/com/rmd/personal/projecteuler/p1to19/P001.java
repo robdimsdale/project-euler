@@ -21,21 +21,21 @@ public class P001 implements Problem {
 
     @Override
     public String run() {
-        long highestMultipleOf3 = this.getHighestMultipleOfIntegerLessThanMaxValue(3); // SUPPRESS CHECKSTYLE magicNumber
-        long highestMultipleOf5 = this.getHighestMultipleOfIntegerLessThanMaxValue(5); // SUPPRESS CHECKSTYLE magicNumber
+        long highestMultipleOf3 = this.getHighestMultipleOfIntegerLessThanMaxValue(3);
+        long highestMultipleOf5 = this.getHighestMultipleOfIntegerLessThanMaxValue(5);
 
-        long highestMultipleOf3DividedBy3 = highestMultipleOf3 / 3; // SUPPRESS CHECKSTYLE magicNumber
-        long highestMultipleOf5DividedBy5 = highestMultipleOf5 / 5; // SUPPRESS CHECKSTYLE magicNumber
+        long highestMultipleOf3DividedBy3 = highestMultipleOf3 / 3;
+        long highestMultipleOf5DividedBy5 = highestMultipleOf5 / 5;
 
-        long sumOf3 = 3 * Common.sum(highestMultipleOf3DividedBy3); // SUPPRESS CHECKSTYLE magicNumber
-        long sumOf5 = 5 * Common.sum(highestMultipleOf5DividedBy5); // SUPPRESS CHECKSTYLE magicNumber
+        long sumOf3 = 3 * Common.sum(highestMultipleOf3DividedBy3);
+        long sumOf5 = 5 * Common.sum(highestMultipleOf5DividedBy5);
 
 
         long highestMultipleOf15
-                = this.getHighestMultipleOfIntegerLessThanMaxValue(15); // SUPPRESS CHECKSTYLE magicNumber
-        long highestMultipleOf15DividedBy15 = highestMultipleOf15 / 15; // SUPPRESS CHECKSTYLE magicNumber
+                = this.getHighestMultipleOfIntegerLessThanMaxValue(15);
+        long highestMultipleOf15DividedBy15 = highestMultipleOf15 / 15;
 
-        long sumOf15 = 15 * (highestMultipleOf15DividedBy15 * (highestMultipleOf15DividedBy15 + 1)) / 2; // SUPPRESS CHECKSTYLE magicNumber
+        long sumOf15 = 15 * (highestMultipleOf15DividedBy15 * (highestMultipleOf15DividedBy15 + 1)) / 2;
 
         return String.valueOf(sumOf3 + sumOf5 - sumOf15);
     }

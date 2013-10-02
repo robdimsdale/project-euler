@@ -60,7 +60,7 @@ public class P037 implements Problem {
     }
 
     private boolean bidirectionalTruncatablePrime(long prime) {
-        long factorOfTen = 10; // SUPPRESS CHECKSTYLE magicNumber
+        long factorOfTen = 10;
         while (factorOfTen < prime) {
             if (!Common.getPrimesAsSet().contains(prime % factorOfTen)) {
                 return false;
@@ -68,7 +68,7 @@ public class P037 implements Problem {
             if (!Common.getPrimesAsSet().contains(prime / factorOfTen)) {
                 return false;
             }
-            factorOfTen *= 10; // SUPPRESS CHECKSTYLE magicNumber
+            factorOfTen *= 10;
         }
         return true;
     }

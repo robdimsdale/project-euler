@@ -32,7 +32,7 @@ public class P016 implements Problem {
     @Override
     public String run() {
         BigInteger bigInteger = new BigInteger("2");
-        bigInteger = bigInteger.pow(this.getPower()); // SUPPRESS CHECKSTYLE magicNumber
+        bigInteger = bigInteger.pow(this.getPower());
         return String.valueOf(Common.sumDigitsInString(String.valueOf(bigInteger)));
     }
 }

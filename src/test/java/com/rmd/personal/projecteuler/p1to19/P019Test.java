@@ -92,10 +92,10 @@ public class P019Test extends AbstractProblemTestBase<P019> {
         final int day = 31;
 
         // Act && Assert
-        assertTrue(this.getProblem().transitionMonth(day, 4, year)); // SUPPRESS CHECKSTYLE magicNumber
-        assertTrue(this.getProblem().transitionMonth(day, 6, year)); // SUPPRESS CHECKSTYLE magicNumber
-        assertTrue(this.getProblem().transitionMonth(day, 9, year)); // SUPPRESS CHECKSTYLE magicNumber
-        assertTrue(this.getProblem().transitionMonth(day, 11, year)); // SUPPRESS CHECKSTYLE magicNumber
+        assertTrue(this.getProblem().transitionMonth(day, 4, year));
+        assertTrue(this.getProblem().transitionMonth(day, 6, year));
+        assertTrue(this.getProblem().transitionMonth(day, 9, year));
+        assertTrue(this.getProblem().transitionMonth(day, 11, year));
     }
 
     @Test
@@ -105,10 +105,10 @@ public class P019Test extends AbstractProblemTestBase<P019> {
         final int day = 30;
 
         // Act && Assert
-        assertFalse(this.getProblem().transitionMonth(day, 4, year)); // SUPPRESS CHECKSTYLE magicNumber
-        assertFalse(this.getProblem().transitionMonth(day, 6, year)); // SUPPRESS CHECKSTYLE magicNumber
-        assertFalse(this.getProblem().transitionMonth(day, 9, year)); // SUPPRESS CHECKSTYLE magicNumber
-        assertFalse(this.getProblem().transitionMonth(day, 11, year)); // SUPPRESS CHECKSTYLE magicNumber
+        assertFalse(this.getProblem().transitionMonth(day, 4, year));
+        assertFalse(this.getProblem().transitionMonth(day, 6, year));
+        assertFalse(this.getProblem().transitionMonth(day, 9, year));
+        assertFalse(this.getProblem().transitionMonth(day, 11, year));
     }
 
     @Test
@@ -118,13 +118,13 @@ public class P019Test extends AbstractProblemTestBase<P019> {
         final int day = 32;
 
         // Act && Assert
-        assertTrue(this.getProblem().transitionMonth(day, 1, year)); // SUPPRESS CHECKSTYLE magicNumber
-        assertTrue(this.getProblem().transitionMonth(day, 3, year)); // SUPPRESS CHECKSTYLE magicNumber
-        assertTrue(this.getProblem().transitionMonth(day, 5, year)); // SUPPRESS CHECKSTYLE magicNumber
-        assertTrue(this.getProblem().transitionMonth(day, 7, year)); // SUPPRESS CHECKSTYLE magicNumber
-        assertTrue(this.getProblem().transitionMonth(day, 8, year)); // SUPPRESS CHECKSTYLE magicNumber
-        assertTrue(this.getProblem().transitionMonth(day, 10, year)); // SUPPRESS CHECKSTYLE magicNumber
-        assertTrue(this.getProblem().transitionMonth(day, 12, year)); // SUPPRESS CHECKSTYLE magicNumber
+        assertTrue(this.getProblem().transitionMonth(day, 1, year));
+        assertTrue(this.getProblem().transitionMonth(day, 3, year));
+        assertTrue(this.getProblem().transitionMonth(day, 5, year));
+        assertTrue(this.getProblem().transitionMonth(day, 7, year));
+        assertTrue(this.getProblem().transitionMonth(day, 8, year));
+        assertTrue(this.getProblem().transitionMonth(day, 10, year));
+        assertTrue(this.getProblem().transitionMonth(day, 12, year));
     }
 
     @Test
@@ -134,12 +134,12 @@ public class P019Test extends AbstractProblemTestBase<P019> {
         final int day = 31;
 
         // Act && Assert
-        assertFalse(this.getProblem().transitionMonth(day, 1, year)); // SUPPRESS CHECKSTYLE magicNumber
-        assertFalse(this.getProblem().transitionMonth(day, 3, year)); // SUPPRESS CHECKSTYLE magicNumber
-        assertFalse(this.getProblem().transitionMonth(day, 5, year)); // SUPPRESS CHECKSTYLE magicNumber
-        assertFalse(this.getProblem().transitionMonth(day, 7, year)); // SUPPRESS CHECKSTYLE magicNumber
-        assertFalse(this.getProblem().transitionMonth(day, 8, year)); // SUPPRESS CHECKSTYLE magicNumber
-        assertFalse(this.getProblem().transitionMonth(day, 10, year)); // SUPPRESS CHECKSTYLE magicNumber
-        assertFalse(this.getProblem().transitionMonth(day, 12, year)); // SUPPRESS CHECKSTYLE magicNumber
+        assertFalse(this.getProblem().transitionMonth(day, 1, year));
+        assertFalse(this.getProblem().transitionMonth(day, 3, year));
+        assertFalse(this.getProblem().transitionMonth(day, 5, year));
+        assertFalse(this.getProblem().transitionMonth(day, 7, year));
+        assertFalse(this.getProblem().transitionMonth(day, 8, year));
+        assertFalse(this.getProblem().transitionMonth(day, 10, year));
+        assertFalse(this.getProblem().transitionMonth(day, 12, year));
     }
 }

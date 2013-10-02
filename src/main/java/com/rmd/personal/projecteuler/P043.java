@@ -21,9 +21,9 @@ public class P043 implements Problem {
     public String run() {
         long sum = 0;
 
-        int[] perm = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}; // SUPPRESS CHECKSTYLE magicNumber
+        int[] perm = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
-        for (long it = 0; it < 9L * Common.factorial(9); it++) { // SUPPRESS CHECKSTYLE magicNumber
+        for (long it = 0; it < 9L * Common.factorial(9); it++) {
 
             final int first3StringStartIndex = 1;
             final int last3StringStartIndex = 7;

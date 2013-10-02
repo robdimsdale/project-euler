@@ -61,7 +61,7 @@ public class P035 implements Problem {
                 continue;
             }
 
-            if (i < 10 && Common.getPrimesAsSet().contains((long) i)) { // SUPPRESS CHECKSTYLE magicNumber
+            if (i < 10 && Common.getPrimesAsSet().contains((long) i)) {
                 circularPrimeCount++;
                 this.getKnownCircularPrimes().add(i);
                 continue;
@@ -86,12 +86,12 @@ public class P035 implements Problem {
 
     private int getNextRotation(int currentRotation) {
         int i = currentRotation;
-        int lastDigit = currentRotation % 10; // SUPPRESS CHECKSTYLE magicNumber
-        currentRotation /= 10; // SUPPRESS CHECKSTYLE magicNumber
-        int factorOf10 = 10; // SUPPRESS CHECKSTYLE magicNumber
+        int lastDigit = currentRotation % 10;
+        currentRotation /= 10;
+        int factorOf10 = 10;
         while (factorOf10 <= i) {
-            factorOf10 *= 10; // SUPPRESS CHECKSTYLE magicNumber
-            lastDigit *= 10; // SUPPRESS CHECKSTYLE magicNumber
+            factorOf10 *= 10;
+            lastDigit *= 10;
         }
         currentRotation += lastDigit;
 

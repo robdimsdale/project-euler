@@ -202,13 +202,13 @@ public final class Common {
         long concatenated = number1;
 
         if (number2 == 0) {
-            return number1 * 10; // SUPPRESS CHECKSTYLE magicNumber
+            return number1 * 10;
         }
 
         long tmpMultiplicand = number2;
         while (tmpMultiplicand > 0) {
-            tmpMultiplicand /= 10; // SUPPRESS CHECKSTYLE magicNumber
-            concatenated *= 10; // SUPPRESS CHECKSTYLE magicNumber
+            tmpMultiplicand /= 10;
+            concatenated *= 10;
         }
 
         concatenated += number2;
@@ -220,14 +220,14 @@ public final class Common {
         boolean[] containedDigits = new boolean[maxDigit];
 
         while (number > 0) {
-            int digit = (int) (number % 10); // SUPPRESS CHECKSTYLE magicNumber
+            int digit = (int) (number % 10);
             if (digit != 0) {
                 if (containedDigits[digit - 1]) {
                     return false;
                 }
                 containedDigits[digit - 1] = true;
             }
-            number /= 10; // SUPPRESS CHECKSTYLE magicNumber
+            number /= 10;
         }
 
         for (boolean contained : containedDigits) {
@@ -241,25 +241,25 @@ public final class Common {
     public static int findMaxDigit(long number) {
         int max = 0;
         while (number > 0) {
-            long digit = number % 10; // SUPPRESS CHECKSTYLE magicNumber
+            long digit = number % 10;
             if (digit > max) {
                 max = (int) digit;
             }
-            number /= 10; // SUPPRESS CHECKSTYLE magicNumber
+            number /= 10;
         }
         return max;
     }
 
     public static boolean isTriangle(long number) {
-        return (-1 + Math.sqrt(1 + 8 * number)) % 2 == 0; // SUPPRESS CHECKSTYLE magicNumber
+        return (-1 + Math.sqrt(1 + 8 * number)) % 2 == 0;
     }
 
     public static boolean isPentagonal(long number) {
-        return (1 + Math.sqrt(1 + 24 * number)) % 6 == 0; // SUPPRESS CHECKSTYLE magicNumber
+        return (1 + Math.sqrt(1 + 24 * number)) % 6 == 0;
     }
 
     public static boolean isHexagonal(long number) {
-        return (1 + Math.sqrt(1 + 8 * number)) % 4 == 0; // SUPPRESS CHECKSTYLE magicNumber
+        return (1 + Math.sqrt(1 + 8 * number)) % 4 == 0;
     }
 
     public static boolean isSquare(long number) {
@@ -321,7 +321,7 @@ public final class Common {
     public static long getLongFromDigitArray(int[] digits) {
         long value = 0;
         for (int digit : digits) {
-            value *= 10; // SUPPRESS CHECKSTYLE magicNumber
+            value *= 10;
             value += digit;
         }
         return value;
@@ -335,8 +335,8 @@ public final class Common {
         List<Integer> digitList = new ArrayList<Integer>();
 
         while (value > 0) {
-            digitList.add((int) value % 10); // SUPPRESS CHECKSTYLE magicNumber
-            value /= 10; // SUPPRESS CHECKSTYLE magicNumber
+            digitList.add((int) value % 10);
+            value /= 10;
         }
 
         Collections.reverse(digitList);

@@ -34,7 +34,7 @@ public class P004 implements Problem {
     }
 
     private long findLargestPalindrome() {
-        long startVal = (long) Math.pow(10, this.getNumberOfDigits()) - 1; // SUPPRESS CHECKSTYLE magicNumber
+        long startVal = (long) Math.pow(10, this.getNumberOfDigits()) - 1;
 
         long largestPalindrome = 0;
 

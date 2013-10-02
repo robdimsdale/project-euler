@@ -124,7 +124,7 @@ public class P015 implements Problem {
 
         @Override
         public int hashCode() {
-            return x * x * y * y; // SUPPRESS CHECKSTYLE magicNumber
+            return x * x * y * y;
         }
     }
 }

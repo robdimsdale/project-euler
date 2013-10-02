@@ -18,12 +18,12 @@ public class P040 implements Problem {
     private Set<Integer> getDefaultIndices() {
         Set<Integer> defaultIndices = new HashSet<Integer>();
         defaultIndices.add(1);
-        defaultIndices.add(10); // SUPPRESS CHECKSTYLE magicNumber
-        defaultIndices.add(100); // SUPPRESS CHECKSTYLE magicNumber
-        defaultIndices.add(1000); // SUPPRESS CHECKSTYLE magicNumber
-        defaultIndices.add(10000); // SUPPRESS CHECKSTYLE magicNumber
-        defaultIndices.add(100000); // SUPPRESS CHECKSTYLE magicNumber
-        defaultIndices.add(1000000); // SUPPRESS CHECKSTYLE magicNumber
+        defaultIndices.add(10);
+        defaultIndices.add(100);
+        defaultIndices.add(1000);
+        defaultIndices.add(10000);
+        defaultIndices.add(100000);
+        defaultIndices.add(1000000);
         return defaultIndices;
     }
 
@@ -61,7 +61,7 @@ public class P040 implements Problem {
         int current = 1;
         while (stringBuilder.length() <= this.getMax()) {
             stringBuilder.append(current);
-            if (this.getIndices().contains(current)) { // SUPPRESS CHECKSTYLE magicNumber
+            if (this.getIndices().contains(current)) {
                 product *= (stringBuilder.charAt(current - 1) - '0');
             }
             current++;
