@@ -61,7 +61,8 @@ public class P032 implements Problem {
                     if (concatenated < SMALLEST_NINE_DIGIT_NUMBER) {
                         continue;
                     }
-                    if (Common.isPandigital(concatenated)) {
+                    final int maxDigit = 9;
+                    if (Common.isPandigital(concatenated, maxDigit)) {
                         products.add(product);
                     }
                 }

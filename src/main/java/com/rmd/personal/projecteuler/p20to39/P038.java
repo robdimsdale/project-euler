@@ -65,8 +65,9 @@ public class P038 implements Problem {
                     continue;
                 }
 
+                final int maxDigit = 9;
                 if (concatenation > largestPandigital
-                        && Common.isPandigital(concatenation)) {
+                        && Common.isPandigital(concatenation, maxDigit)) {
                     largestPandigital = concatenation;
                 }
             }

@@ -191,30 +191,43 @@ public class CommonTest {
     }
 
     @Test
-    public void isPandigitalReturnsTrueForValid0to9PandigitalNumber() {
+    public void isPandigitalReturnsTrueForValid1to9PandigitalNumber() {
+        // Arrange
+        final long number = 987654321L;
+
+        // Act & assert
+        final int maxDigit = 9;
+        assertTrue(Common.isPandigital(number, maxDigit));
+    }
+
+    @Test
+    public void isPandigitalReturnsTrueForValid0to9PandigitalNumberIgnoring0() {
         // Arrange
         final long number = 9876543210L;
 
         // Act & assert
-        assertTrue(Common.isPandigital(number));
+        final int maxDigit = 9;
+        assertTrue(Common.isPandigital(number, maxDigit));
     }
 
     @Test
-    public void isPandigitalReturnsTrueForValid2to7PandigitalNumber() {
+    public void isPandigitalReturnsFalseFor23467() {
         // Arrange
         final long number = 234567;
 
         // Act & assert
-        assertTrue(Common.isPandigital(number));
+        final int maxDigit = 7;
+        assertFalse(Common.isPandigital(number, maxDigit));
     }
 
     @Test
-    public void isPandigitalReturnsFalseForInvalidPandigitalNumber() {
+    public void isPandigitalReturnsFalseFor1123() {
         // Arrange
         final long number = 1123;
 
         // Act & assert
-        assertFalse(Common.isPandigital(number));
+        final int maxDigit = 3;
+        assertFalse(Common.isPandigital(number, maxDigit));
     }
 
     @Test
@@ -372,5 +385,18 @@ public class CommonTest {
         final long value = 37;
         // Act & Assert
         assertFalse(Common.isSquare(value));
+    }
+
+    @Test
+    public void getLongFromDigitArrayReturnsCorrectlyForValidDigitArray() {
+        // Arrange
+        final int[] digits = {1, 2, 3, 4};
+
+        // Act
+        long returned = Long.valueOf(Common.getLongFromDigitArray(digits));
+
+        // Assert
+        final long expected = 1234;
+        assertEquals(expected, returned);
     }
 }

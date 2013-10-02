@@ -21,33 +21,34 @@ public class P043 implements Problem {
     public String run() {
         long sum = 0;
 
-        for (long i : Common.getPandigital0to9AsSet()) {
+        int[] perm = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}; // SUPPRESS CHECKSTYLE magicNumber
 
-            final long largest9Digit = 987654331;
-            if (i <= largest9Digit) {
-                continue;
-            }
+        for (long it = 0; it < 9L * Common.factorial(9); it++) { // SUPPRESS CHECKSTYLE magicNumber
 
             final int first3StringStartIndex = 1;
             final int last3StringStartIndex = 7;
             boolean fullyDividablePandigital = true;
             for (int j = first3StringStartIndex; j <= last3StringStartIndex; j++) {
                 long prime = Common.getPrimes().get(j - 1);
-                if (!(this.get3DigitsSubStringStartingAtN(i, j) % prime == 0)) {
+                if (!(this.get3DigitsSubStringStartingAtN(perm, j) % prime == 0)) {
                     fullyDividablePandigital = false;
                     break;
                 }
             }
             if (fullyDividablePandigital) {
-                sum += i;
+                sum += Common.getLongFromDigitArray(perm);
             }
+
+            Common.nextPermutation(perm);
         }
 
         return String.valueOf(sum);
     }
 
-    private int get3DigitsSubStringStartingAtN(long number, int n) {
-        String numberAsString = String.valueOf(number);
-        return Integer.valueOf(numberAsString.substring(n, n + 3)); // SUPPRESS CHECKSTYLE magicNumber
+    private int get3DigitsSubStringStartingAtN(int[] number, int n) {
+        long subString = number[n];
+        subString = Common.concatenateNumbers(subString, number[n + 1]);
+        subString = Common.concatenateNumbers(subString, number[n + 2]);
+        return (int) subString;
     }
 }

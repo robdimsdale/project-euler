@@ -33,7 +33,7 @@ public class P041 implements Problem {
             if (prime > this.getMax()) {
                 break;
             }
-            if (Common.isPandigital(prime)) {
+            if (Common.isPandigital(prime, Common.findMaxDigit(prime))) {
                 largest = prime; // Don't need to test as we know the prime list is ordered.
             }
         }
