@@ -191,9 +191,18 @@ public class CommonTest {
     }
 
     @Test
-    public void isPandigitalReturnsTrueForValidPandigitalNumber() {
+    public void isPandigitalReturnsTrueForValid0to9PandigitalNumber() {
         // Arrange
-        final long number = 987654321L;
+        final long number = 9876543210L;
+
+        // Act & assert
+        assertTrue(Common.isPandigital(number));
+    }
+
+    @Test
+    public void isPandigitalReturnsTrueForValid2to7PandigitalNumber() {
+        // Arrange
+        final long number = 234567;
 
         // Act & assert
         assertTrue(Common.isPandigital(number));

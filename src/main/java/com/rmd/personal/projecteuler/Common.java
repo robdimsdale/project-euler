@@ -1,6 +1,7 @@
 package com.rmd.personal.projecteuler;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -19,10 +20,24 @@ public final class Common {
     private static List<Long> primes;
     private static Set<Long> primesAsSet;
 
+    private static Set<Long> pandigital1to5AsSet;
+    private static Set<Long> pandigital1to9AsSet;
+    private static Set<Long> pandigital0to9AsSet;
+
     static {
         primes = new ArrayList<Long>();
         primesAsSet = new HashSet<Long>();
         populatePrimesUpTo(MAX_PRIME_VALUE);
+
+        pandigital1to5AsSet = new HashSet<Long>((int) Common.factorial(5)); // SUPPRESS CHECKSTYLE magicNumber
+        Common.populatePandigitalPermutations(new int[]{1, 2, 3, 4, 5}, Common.getPandigital1to5AsSet()); // SUPPRESS CHECKSTYLE magicNumber
+
+        pandigital1to9AsSet = new HashSet<Long>((int) Common.factorial(9)); // SUPPRESS CHECKSTYLE magicNumber
+        Common.populatePandigitalPermutations(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9}, Common.getPandigital1to9AsSet()); // SUPPRESS CHECKSTYLE magicNumber
+
+        pandigital0to9AsSet = new HashSet<Long>((int) Common.factorial(10)); // SUPPRESS CHECKSTYLE magicNumber
+        Common.populatePandigitalPermutations(new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, Common.getPandigital0to9AsSet()); // SUPPRESS CHECKSTYLE magicNumber
+
     }
 
     public static List<Long> getPrimes() {
@@ -31,6 +46,18 @@ public final class Common {
 
     public static Set<Long> getPrimesAsSet() {
         return primesAsSet;
+    }
+
+    public static Set<Long> getPandigital1to5AsSet() {
+        return pandigital1to5AsSet;
+    }
+
+    public static Set<Long> getPandigital1to9AsSet() {
+        return pandigital1to9AsSet;
+    }
+
+    public static Set<Long> getPandigital0to9AsSet() {
+        return pandigital0to9AsSet;
     }
 
     private static void populatePrimesUpTo(int end) {
@@ -191,6 +218,10 @@ public final class Common {
     public static long concatenateNumbers(long number1, long number2) {
         long concatenated = number1;
 
+        if (number2 == 0) {
+            return number1 * 10; // SUPPRESS CHECKSTYLE magicNumber
+        }
+
         long tmpMultiplicand = number2;
         while (tmpMultiplicand > 0) {
             tmpMultiplicand /= 10; // SUPPRESS CHECKSTYLE magicNumber
@@ -203,15 +234,16 @@ public final class Common {
     }
 
     public static boolean isPandigital(long number) {
-        boolean[] containedDigits = new boolean[Common.findMaxDigit(number) + 1];
-        containedDigits[0] = true; // We don't care about the '0' digit so mask to true.
+        int maxDigit = Common.findMaxDigit(number);
+        int minDigit = Common.findMinDigit(number);
+        boolean[] containedDigits = new boolean[maxDigit - minDigit + 1];
 
         while (number > 0) {
-            int digit = (int) number % 10; // SUPPRESS CHECKSTYLE magicNumber
-            if (containedDigits[digit]) {
+            int digit = (int) (number % 10); // SUPPRESS CHECKSTYLE magicNumber
+            if (containedDigits[digit - minDigit]) {
                 return false;
             }
-            containedDigits[digit] = true;
+            containedDigits[digit - minDigit] = true;
             number /= 10; // SUPPRESS CHECKSTYLE magicNumber
         }
 
@@ -235,6 +267,18 @@ public final class Common {
         return max;
     }
 
+    private static int findMinDigit(long number) {
+        int min = 9; // SUPPRESS CHECKSTYLE magicNumber
+        while (number > 0) {
+            long digit = number % 10; // SUPPRESS CHECKSTYLE magicNumber
+            if (digit < min) {
+                min = (int) digit;
+            }
+            number /= 10; // SUPPRESS CHECKSTYLE magicNumber
+        }
+        return min;
+    }
+
     public static boolean isTriangle(long number) {
         return (-1 + Math.sqrt(1 + 8 * number)) % 2 == 0; // SUPPRESS CHECKSTYLE magicNumber
     }
@@ -249,5 +293,63 @@ public final class Common {
 
     public static boolean isSquare(long number) {
         return Math.sqrt(number) % 1 == 0;
+    }
+
+    // See http://www.mathblog.dk/project-euler-24-millionth-lexicographic-permutation/
+    private static void populatePandigitalPermutations(int[] digits, Set<Long> set) {
+        int[] perm = Arrays.copyOf(digits, digits.length);
+
+        Arrays.sort(perm);
+
+        long count = 1;
+        int digitRange = perm[perm.length - 1] - perm[0] + 1;
+        long maxCount = Common.factorial(digitRange);
+
+        while (count < maxCount) {
+            long concatenated = Common.concatenateIntegers(perm);
+
+            set.add(concatenated);
+
+            int n = perm.length;
+            int i = n - 1;
+            while (perm[i - 1] >= perm[i]) {
+                i = i - 1;
+            }
+
+            int j = n;
+            while (perm[j - 1] <= perm[i - 1]) {
+                j = j - 1;
+            }
+
+            // swap values at position i-1 and j-1
+            Common.swap(perm, i - 1, j - 1);
+
+            i++;
+            j = n;
+            while (i < j) {
+                Common.swap(perm, i - 1, j - 1);
+                i++;
+                j--;
+            }
+            count++;
+        }
+
+        long concatenated = Common.concatenateIntegers(perm);
+
+        set.add(concatenated);
+    }
+
+    private static long concatenateIntegers(int[] ints) {
+        long concatenated = ints[0];
+        for (int index = 1; index < ints.length; index++) {
+            concatenated = Common.concatenateNumbers(concatenated, ints[index]);
+        }
+        return concatenated;
+    }
+
+    private static void swap(int[] array, int i, int j) {
+        int k = array[i];
+        array[i] = array[j];
+        array[j] = k;
     }
 }
