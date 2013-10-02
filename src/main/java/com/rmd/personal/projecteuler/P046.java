@@ -24,7 +24,7 @@ public class P046 implements Problem {
         while (found) {
             val += 2;
 
-            if (Common.getPrimes().contains(val)) {
+            if (Common.getPrimesAsSet().contains(val)) {
                 continue;
             }
 
