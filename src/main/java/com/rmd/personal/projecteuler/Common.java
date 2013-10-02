@@ -1,6 +1,8 @@
 package com.rmd.personal.projecteuler;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -255,28 +257,49 @@ public final class Common {
     }
 
     // See http://www.mathblog.dk/project-euler-24-millionth-lexicographic-permutation/
-    public static void nextPermutation(int[] perm) {
-        int n = perm.length;
+    public static int[] nextPermutation(int[] perm) {
+
+        int[] copyAndReverse = Common.copyAndReverse(perm);
+
+        int[] copyAndSort = Arrays.copyOf(perm, perm.length);
+        Arrays.sort(copyAndSort);
+
+        if (Arrays.equals(copyAndReverse, copyAndSort)) {
+            return copyAndReverse;
+        }
+
+        int[] returnedPerm = Arrays.copyOf(perm, perm.length);
+
+        int n = returnedPerm.length;
         int i = n - 1;
-        while (perm[i - 1] >= perm[i]) {
+        while (returnedPerm[i - 1] >= returnedPerm[i]) {
             i = i - 1;
         }
 
         int j = n;
-        while (perm[j - 1] <= perm[i - 1]) {
+        while (returnedPerm[j - 1] <= returnedPerm[i - 1]) {
             j = j - 1;
         }
 
         // swap values at position i-1 and j-1
-        Common.swap(perm, i - 1, j - 1);
+        Common.swap(returnedPerm, i - 1, j - 1);
 
         i++;
         j = n;
         while (i < j) {
-            Common.swap(perm, i - 1, j - 1);
+            Common.swap(returnedPerm, i - 1, j - 1);
             i++;
             j--;
         }
+        return returnedPerm;
+    }
+
+    private static int[] copyAndReverse(int[] array) {
+        int[] copy = Arrays.copyOf(array, array.length);
+        for (int i = 0; i < array.length; i++) {
+            copy[array.length - 1 - i] = array[i];
+        }
+        return copy;
     }
 
     private static void swap(int[] array, int i, int j) {
@@ -292,5 +315,28 @@ public final class Common {
             value += digit;
         }
         return value;
+    }
+
+    public static int[] getDigitArrayFromLong(long value) {
+        if (value == 0) {
+            return new int[]{0};
+        }
+
+        List<Integer> digitList = new ArrayList<Integer>();
+
+        while (value > 0) {
+            digitList.add((int) value % 10); // SUPPRESS CHECKSTYLE magicNumber
+            value /= 10; // SUPPRESS CHECKSTYLE magicNumber
+        }
+
+        Collections.reverse(digitList);
+
+        int[] digits = new int[digitList.size()];
+
+        for (int i = 0; i < digitList.size(); i++) {
+            digits[i] = digitList.get(i);
+        }
+
+        return digits;
     }
 }

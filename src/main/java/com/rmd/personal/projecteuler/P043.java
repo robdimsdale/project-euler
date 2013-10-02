@@ -39,7 +39,7 @@ public class P043 implements Problem {
                 sum += Common.getLongFromDigitArray(perm);
             }
 
-            Common.nextPermutation(perm);
+            perm = Common.nextPermutation(perm);
         }
 
         return String.valueOf(sum);

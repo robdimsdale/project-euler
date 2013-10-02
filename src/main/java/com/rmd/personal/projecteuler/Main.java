@@ -99,7 +99,7 @@ public final class Main {
         this.getProblemList().add(new P046());
 
         this.getProblemList().add(new P048());
-
+        this.getProblemList().add(new P049());
 
         this.getProblemList().add(new P067());
     }

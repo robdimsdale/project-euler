@@ -2,6 +2,7 @@ package com.rmd.personal.projecteuler;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Modifier;
+import java.util.Arrays;
 import java.util.Map;
 
 import org.junit.Ignore;
@@ -398,5 +399,57 @@ public class CommonTest {
         // Assert
         final long expected = 1234;
         assertEquals(expected, returned);
+    }
+
+    @Test
+    public void nextPermRotatesCorrectly() {
+        // Arrange
+        final int[] perm = {4, 3, 2, 1};
+
+        // Act
+        int[] returned = Common.nextPermutation(perm);
+
+        // Assert
+        final int[] expected = {1, 2, 3, 4};
+        assertTrue(Arrays.equals(expected, returned));
+    }
+
+    @Test
+    public void nextPermGeneratesNextCorrectly() {
+        // Arrange
+        final int[] perm = {1, 2, 4, 3};
+
+        // Act
+        int[] returned = Common.nextPermutation(perm);
+
+        // Assert
+        final int[] expected = {1, 3, 2, 4};
+        assertTrue(Arrays.equals(expected, returned));
+    }
+
+    @Test
+    public void getDigitArrayFromLongReturnsCorrectlyForZero() {
+        // Arrange
+        final long value = 0;
+
+        // Act
+        int[] returned = Common.getDigitArrayFromLong(value);
+
+        // Assert
+        final int[] expected = {0};
+        assertTrue(Arrays.equals(expected, returned));
+    }
+
+    @Test
+    public void getDigitArrayFromLongReturnsCorrectlyForNonZero() {
+        // Arrange
+        final long value = 1245;
+
+        // Act
+        int[] returned = Common.getDigitArrayFromLong(value);
+
+        // Assert
+        final int[] expected = {1, 2, 4, 5};
+        assertTrue(Arrays.equals(expected, returned));
     }
 }
