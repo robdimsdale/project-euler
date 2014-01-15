@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class P050 implements Problem {
 
-    private final static int DEFAULT_MAX = 1000000;
+    private static final int DEFAULT_MAX = 1000000;
 
     private int max = DEFAULT_MAX;
 
